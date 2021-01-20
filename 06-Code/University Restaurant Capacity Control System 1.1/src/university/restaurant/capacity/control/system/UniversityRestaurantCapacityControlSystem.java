@@ -8,6 +8,7 @@ package university.restaurant.capacity.control.system;
 import com.google.gson.Gson;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.Controller;
 import ec.edu.espe.filemanager.utils.FileManager;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -36,10 +37,23 @@ public class UniversityRestaurantCapacityControlSystem {
             switch(option) {
                 case 1:
                     
+                    System.out.println("Ingrese el ID del producto: ");
+                    Scanner scan = new Scanner(System.in);
+                    scan.nextInt();
+                    String dataToFind= scan.nextLine();
+                    String dataOfFile;
+                    
+                    try {
+                        dataOfFile=FileManager.find("producstList.json",dataToFind);
+                        System.out.println(dataOfFile);
+                    }catch(Exception ex){
+                               System.out.println("ID no encontrado");
+                    }
+                    
                     break;
                 case 2:
                     
-                   
+          
                     break;
                 case 3:
                     FileManager.save("productsList.json", gson.toJson(controller.addNewProduct()));
