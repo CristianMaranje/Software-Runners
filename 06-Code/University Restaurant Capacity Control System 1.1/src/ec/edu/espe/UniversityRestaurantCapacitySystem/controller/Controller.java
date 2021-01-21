@@ -5,12 +5,16 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.controller;
 
+import com.google.gson.Gson;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Costumer;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Inventory;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Order;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Recipt;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Table;
+import ec.edu.espe.filemanager.utils.FileManager;
+import ec.edu.espe.filemanager.utils.Student;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,11 +46,57 @@ public class Controller {
         return product;
     }
         
-     public Order registerOrder(Order order) {
+     public void registerOrder() {
          
-         
-        return order;
-    }
+         System.out.println("Ingrese el ID del producto que desea añadir");
+                    ArrayList orders = new ArrayList();
+                    Scanner scan=new Scanner(System.in);
+                    
+                    scan.nextLine();
+                    String dataToFind=scan.nextLine();
+                    String dataOfFile;
+                    //dataOfFile=FileManager.find("students.json", dataToFind);
+                    //System.out.println(dataOfFile);
+                    try{
+                        
+                        dataOfFile=FileManager.find("productsList.json", dataToFind);
+                        System.out.println(dataToFind);
+                    }catch(Exception ex){
+                        System.out.println("ID del producto no disponible");
+                    }
+                     orders.add(dataToFind);
+          System.out.println("Desea añadir otro producto a la orden? ");
+          System.out.println("1.Si");
+          System.out.println("2.No");
+          int option =scan.nextInt();
+          
+          if ( option==1){
+               System.out.println("Ingrese el ID del producto que desea añadir");
+                    scan.nextLine();
+                    try{
+                        
+                        dataOfFile=FileManager.find("productsList.json", dataToFind);
+                        System.out.println(dataToFind);
+                    }catch(Exception ex){
+                        System.out.println("ID del producto no disponible");
+                    }
+                     orders.add(dataToFind);
+          }else {
+              System.out.println(orders);               
+}
+          }
+          
+          
+    public void displayAnStudent(String lineOfFile){
+        
+        Student eachStudent=new Student();
+        Gson gson=new Gson();
+       
+        
+        eachStudent=gson.fromJson(lineOfFile, Student.class);
+        StudentView view = new StudentView(eachStudent);
+        view.display();
+    } 
 
     public Recipt printRecipt(Recipt recipt) {
 

@@ -40,7 +40,7 @@ public class FileManager {
 
     }
 
-    public static void find(String fileName, String dataToFind) {
+    /*public static String find(String fileName, String dataToFind) {
         int counter;
         List<String> dataList;
         dataList = retrieveList(fileName);
@@ -70,8 +70,36 @@ public class FileManager {
             System.out.println("Data not found");
             System.out.println("__________________");
         }
-    }
+       return dataToFind; 
+    }*/
 
+    public static String find(String fileName, String dataToFind){
+        // todo saving data in the file name
+        String dataToReturn=new String();
+        try{
+            int counter;
+        
+        List<String> dataList;
+        dataList = retrieveList(fileName);
+        
+        
+       
+        for(String line : dataList){
+            
+            String words[]=line.split(";");
+           if(line.contains(dataToFind)){
+                dataToReturn=line;
+            }
+            
+        }}
+        catch(Exception ex){
+            System.out.println("Student's id has not been found");
+        }
+        return dataToReturn;
+        
+        
+     }
+    
     public static void findAll(String fileName) {
 
         List<String> linesFile = retrieveList(fileName);

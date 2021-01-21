@@ -6,10 +6,15 @@
 package university.restaurant.capacity.control.system;
 
 import com.google.gson.Gson;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.formatDate;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.Controller;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.actualDate;
 import ec.edu.espe.filemanager.utils.FileManager;
 import java.util.List;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -37,7 +42,8 @@ public class UniversityRestaurantCapacityControlSystem {
             option = scanner.nextInt();
             switch (option) {
                 case 1:
-                    
+                   
+                    System.out.println(actualDate.todayDate());
                     break;
                 case 2:
                     

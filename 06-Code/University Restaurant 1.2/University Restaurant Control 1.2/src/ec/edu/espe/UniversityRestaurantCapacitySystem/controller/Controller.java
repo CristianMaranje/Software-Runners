@@ -11,6 +11,7 @@ import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Order;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Recipt;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Table;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,6 +49,17 @@ public class Controller {
         String name = scan.nextLine();
         return name;
     }
+    
+      /*public static String todayDate(){
+            
+        
+        Date date = new Date();
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/nn/aaaa");
+        
+        return formatDate.format(date);
+    
+        }*/
+    
     public void substractStock(Inventory product){
         
         
