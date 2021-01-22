@@ -1,5 +1,8 @@
-
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
+
+import com.google.gson.Gson;
+import ec.edu.espe.filemanager.utils.FileManager;
+import java.util.Scanner;
 
 /**
  *
@@ -17,12 +20,34 @@ public class Costumer {
         this.id = id;
     }
 
+    public Costumer (){
+        name = "Default";
+        mail = "noMailRegistered";
+        id = "9999999999";
+    }
+    
+    public Costumer addNewCostumer() {
+        Gson gson = new Gson();
+        Scanner scan = new Scanner(System.in);
+        System.out.print("ENTER COSTUMER NAME:");
+        String name = scan.nextLine();
+        System.out.print("ENTER COSTUMER MAIL:");
+        String mail = scan.nextLine();
+        //scan.nextLine();
+        System.out.print("ENTER COSTUMER ID: ");
+        String costumerID = scan.nextLine();
+        System.out.println("");
+        Costumer costumer = new Costumer(name, mail, costumerID);
+        FileManager.save("costumersList.json", gson.toJson(costumer, Costumer.class));
+        return costumer;
+    }
+
+    
     
     @Override
     public String toString() {
         return "Costumer{" + "name=" + name + ", mail=" + mail + ", id=" + id + '}';
     }
-
 
     public String getName() {
         return name;

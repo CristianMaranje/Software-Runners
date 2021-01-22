@@ -33,24 +33,24 @@ public class Product {
     
     @Override
     public String toString() {
-        return "Product{\n" + "name=" + name + ", productId=" + productId + ", price=" + price + ", description=" + description + ", quantity=" + quantity + '}';
+        return "Product{" + "name=" + name + ", productId=" + productId + ", price=" + price + ", description=" + description + ", quantity=" + quantity + '}';
     }
     
     
     public Product addNewProduct() {
         
         Scanner scan = new Scanner(System.in);
-        System.out.println("ENTER THE PRODUCT NAME:");
+        System.out.print("ENTER THE PRODUCT NAME:");
         String name = scan.nextLine();
         System.out.println("ENTER THE PRODUCT ID:");
         int productID = scan.nextInt();
         scan.nextLine();
-        System.out.println("ENTER THE PRODUCT PRICE");
+        System.out.print("ENTER THE PRODUCT PRICE: ");
         float price = scan.nextFloat();
         scan.nextLine();
-        System.out.println("ENTER THE PRODUCT DESCRIPTION");
+        System.out.print("ENTER THE PRODUCT DESCRIPTION: ");
         String description = scan.nextLine();
-        System.out.println("ENTER THE CUANTITY");
+        System.out.print("ENTER THE CUANTITY: ");
         int quantity = scan.nextInt();
 
         Product product = new Product(name, productID, price, description, quantity);
