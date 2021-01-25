@@ -3,7 +3,7 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
 /**
  *
- * @authors GROUP 3 Software-Runners ESPE-DCCO
+ * @authors Cristian Maranje Software-Runners ESPE-DCCO
  */
 import java.util.Date;
 

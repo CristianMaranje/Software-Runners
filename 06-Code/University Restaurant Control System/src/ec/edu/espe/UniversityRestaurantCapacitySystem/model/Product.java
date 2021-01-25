@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  *
- * @authors GROUP 3 Software-Runners ESPE-DCCO
+ * @authors Juan Gallardo Software-Runners ESPE-DCCO
  */
 public class Product {
     private String name;
