@@ -3,4 +3,9 @@
 {"name":"Cristian Maranjel","mail":"cristian@espe.com","id":"1759585429"}
 {"name":"Nicolas Hidrobo","mail":"nicolas@espe.com","id":"1751577725"}
 {"name":"Jhon Smith","mail":"jhon@espe.com","id":"1754585945"}
+<<<<<<< HEAD:06-Code/University Restaurant Control System/costumersList.json
 {"name":"Ricardo","mail":"Lopez","id":"1748256598"}
+=======
+{"name":"cristiantest","mail":"test","id":"12345678790"}
+{"name":"Nicole","mail":"nicola45@gmail.com","id":"1751165380"}
+>>>>>>> 8b944930bbdba7d65b545351f58d449ec74a5e86:06-Code/University Restaurant Control System V.1.10/costumersList.json
