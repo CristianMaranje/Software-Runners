@@ -11,14 +11,14 @@ import java.util.Date;
  *
  * @authors GROUP 3 Software-Runners ESPE-DCCO
  */
-public class Recipt {
+public class Receipt {
     private int reciptId;
     private Date date;
     private String costumerName;
     private int costumerID;
     private float payment;
 
-    public Recipt(int reciptId, Date date, String costumerName, int costumerID, float payment) {
+    public Receipt(int reciptId, Date date, String costumerName, int costumerID, float payment) {
         this.reciptId = reciptId;
         this.date = date;
         this.costumerName = costumerName;

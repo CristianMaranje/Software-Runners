@@ -20,7 +20,7 @@ public class UniversityRestaurantCapacityControlSystem {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Display display = new Display();
         List<String> foundLines;
@@ -57,8 +57,13 @@ public class UniversityRestaurantCapacityControlSystem {
                     System.out.println(foundLines);
                     break;
                 case 7:
+                    System.out.println("Exiting ...");
+                    Thread.sleep(1* 1000);    
+                    System.out.println("Thank you for using this system");
                     System.exit(0);
                     break;
+                
+                
             }
         } while (7 >= option && option > 0);
 

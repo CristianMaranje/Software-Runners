@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Costumer;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Order;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
+import ec.edu.espe.filemanager.utils.FileManager;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,6 +23,8 @@ public class Display {
 
     public int displayMenu() {
         Scanner scan = new Scanner(System.in);
+        
+        System.out.println("***********RESTAURANT CONTROL SYSTEM***********\n\n");
         System.out.println("1. NEW ORDER");
         System.out.println("2. PRINT All ORDERS");
         System.out.println("3. ADD PRODUCT");
@@ -45,7 +48,7 @@ public class Display {
             System.out.println("PRICE: $" + product.getPrice());
             System.out.println("DESCRIPTION: " + product.getDescription());
             System.out.println("QUANTITY: " + product.getQuantity());
-            System.out.println("-----------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------");
             cont++;
         }
 
@@ -59,7 +62,7 @@ public class Display {
             System.out.println("NAME: " + costumer.getName());
             System.out.println("ID: " + costumer.getId());
             System.out.println("E-MAIL: " + costumer.getMail());
-            System.out.println("-------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------");
         }
     }
 
@@ -71,6 +74,13 @@ public class Display {
             System.out.println("------->>>>>>>  ORDER ID ->(" + order.getOrderId() + ")  <<<<<<<<-------");
             Product[] products = order.getProduct();
             int cont = 1;
+            float total = 0;
+            System.out.println("DATE: " + order.getDate() + "\n");
+            System.out.println("COSTUMER INFO");
+            System.out.println("NAME: " + order.getCostumer().getName());
+            System.out.println("ID: " + order.getCostumer().getId());
+            System.out.println("E-MAIL: " + order.getCostumer().getMail());
+            System.out.println("-------------------------------------------------");
             System.out.println("PRODUCTS INFO");
             for (Product product : products) {
                 System.out.println("PRODUCT (" + cont + ")");
@@ -78,29 +88,29 @@ public class Display {
                 System.out.println("ID: " + product.getProductId());
                 System.out.println("PRICE: $" + product.getPrice());
                 System.out.println("DESCRIPTION: " + product.getDescription());
-                System.out.println("----------------------------------------------------------------------");
+                System.out.println("---------------------------------------------");
+                total += product.getPrice();
                 cont++;
+                System.out.println("TOTAL: $" + total);
+                 System.out.println("--------------------------------------------\n");
+                
             }
-            System.out.println("COSTUMER INFO");
-            System.out.println("NAME: " + order.getCostumer().getName());
-            System.out.println("ID: " + order.getCostumer().getId());
-            System.out.println("E-MAIL: " + order.getCostumer().getMail());
-            System.out.println("---------------------------------------------------------------------------");
-            System.out.println("DATE: " + order.getDate() + "\n\n");
+            
+            
         }
     }
 
-    public void displayRecipt(String orders) {
+    public void displayReceipt(String orders) {
         Gson gson = new Gson();
         Order order = new Order();
         order = gson.fromJson(orders, Order.class);
-        System.out.println("\n------->>>>>>>  ORECIPT ID ->(" + order.getOrderId() + ")  <<<<<<<<-------\n");
+        System.out.println("\n------->>>>>>>  RECEIPT ID ->(" + order.getOrderId() + ")  <<<<<<<<-------\n");
         System.out.println("DATE: " + order.getDate());
         System.out.println("COSTUMER INFO");
         System.out.println("NAME: " + order.getCostumer().getName());
         System.out.println("ID: " + order.getCostumer().getId());
         System.out.println("E-MAIL: " + order.getCostumer().getMail());
-        System.out.println("----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------");
         Product[] products = order.getProduct();
         int cont = 1;
         float total = 0;
@@ -110,11 +120,13 @@ public class Display {
             System.out.println("NAME: " + product.getName());
             System.out.println("ID: " + product.getProductId());
             System.out.println("PRICE: $" + product.getPrice());
-            System.out.println("------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------");
             total += product.getPrice();
             cont++;
         }
         System.out.println("TOTAL: $" + total);
-        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------\n");
     }
+    
+
 }
