@@ -35,22 +35,27 @@ public class UniversityRestaurantCapacityControlSystem {
             option = display.displayMenu();
             switch (option) {
                 case 1:
-                    cashier.registerNewOrder(orders);
+                     FileManager.save("costumersList.json", gson.toJson(costumer.addNewCostumer()));
+                    System.out.println("**NEW COSTUMER ADDED***\n");
                     break;
+                    
+                    
                 case 2:
-                    controller.printAllOrders();
-
+                     cashier.registerNewOrder(orders);
                     break;
+                    
+                  
                 case 3:
                     FileManager.save("productsList.json", gson.toJson(product.addNewProduct()));
                     break;
                 case 4:
-                    FileManager.save("costumersList.json", gson.toJson(costumer.addNewCostumer()));
-                    System.out.println("**NEW COSTUMER ADDED***\n");
-                    break;
-                case 5:
                     foundLines = FileManager.find("productsList.json", display.productToFind());
                     System.out.println(foundLines);
+                    break;
+                    
+                case 5:
+                    controller.printAllOrders();
+
                     break;
                 case 6:
                     foundLines = FileManager.findAll("productsList.json");
