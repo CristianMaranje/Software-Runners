@@ -25,11 +25,11 @@ public class Display {
         Scanner scan = new Scanner(System.in);
         
         System.out.println("***********RESTAURANT CONTROL SYSTEM***********\n\n");
-        System.out.println("1. ADD COSTUMER");
-        System.out.println("2. NEW ORDER");
+        System.out.println("1. NEW ORDER");
+        System.out.println("2. PRINT All ORDERS");
         System.out.println("3. ADD PRODUCT");
-        System.out.println("4. FIND PRODUCT");
-        System.out.println("5. PRINT ALL ORDERS");
+        System.out.println("4. ADD COSTUMER");
+        System.out.println("5. FIND PRODUCT");
         System.out.println("6. SHOW PRODUCTS");
         System.out.println("7. EXIT");
         int option = scan.nextInt();
