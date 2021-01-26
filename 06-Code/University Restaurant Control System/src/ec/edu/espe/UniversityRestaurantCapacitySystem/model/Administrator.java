@@ -51,12 +51,12 @@ public class Administrator {
         List<String> aviableProducts = FileManager.findAll("productsList.json");
         display.displayAllProducts(aviableProducts);
         int sizeOfAviableProducts = aviableProducts.size();
-        int option = 1;
+        int option = 2;
         int cont = 0;
 
         Product[] products = new Product[sizeOfAviableProducts];
 
-        while (option == 1) {
+        while (option == 2) {
             option = 0;
             System.out.print("SELECT THE ID OF THE PRODUCT YOU WANT TO ADD TO THE ORDER: ");
             String id = scan.nextLine();
