@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author Cristian Maranje Software-Runners ESPE-DCCO
+ * @authors GROUP 3 Software-Runners ESPE-DCCO
  */
 public class UniversityRestaurantCapacityControlSystem {
 

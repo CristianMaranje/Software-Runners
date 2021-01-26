@@ -3,7 +3,7 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
 /**
  *
- * @authors Cristian Maranje Software-Runners ESPE-DCCO
+ * @authors GROUP 3 Software-Runners ESPE-DCCO
  */
 public class Table {
     private boolean aviable;

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @authors Nicole Lara Software-Runners ESPE-DCCO
+ * @authors GROUP 3 Software-Runners ESPE-DCCO
  */
 public class Display {
 

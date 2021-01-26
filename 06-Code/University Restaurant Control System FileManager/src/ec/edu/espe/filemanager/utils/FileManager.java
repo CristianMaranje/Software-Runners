@@ -34,7 +34,7 @@ public class FileManager {
 
         }
 
-        System.out.println("DATA SAVED");
+        System.out.println("SAVED :)");
 
     }
 
@@ -86,7 +86,7 @@ public class FileManager {
     public static boolean delete(String fileName, String[] datatodelete) {
 
         boolean deleted = true;
-        System.out.println("DATA DELETED");
+        System.out.println("DELETED :(");
         return deleted;
 
     }

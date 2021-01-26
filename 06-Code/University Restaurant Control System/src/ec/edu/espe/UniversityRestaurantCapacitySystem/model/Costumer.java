@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  *
- * @authors Juan Gallardo Software-Runners ESPE-DCCO
+ * @authors GROUP 3 Software-Runners ESPE-DCCO
  */
 public class Costumer {
 

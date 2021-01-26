@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  *
- * @authors Nicolas Hidrobo Software-Runners ESPE-DCCO
+ * @authors GROUP 3 Software-Runners ESPE-DCCO
  */
 public class Order {
 

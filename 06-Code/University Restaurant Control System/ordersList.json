@@ -2,8 +2,3 @@
 {"orderId":2,"product":[{"name":"Bolon","productId":12341,"price":1.0,"description":"With Chesse or Chicharron","quantity":20}],"costumer":{"name":"Nicole Lara","mail":"nicole@espe.com","id":"1751585926"},"date":"Jan 23, 2021 3:26:56 AM"}
 {"orderId":3,"product":[{"name":"Juice","productId":12343,"price":1.0,"description":"Orange or lemon juice","quantity":40}],"costumer":{"name":"Nicolas Hidrobo","mail":"nicolasespe.com","id":"1751577725"},"date":"Jan 23, 2021 3:41:39 AM"}
 {"orderId":4,"product":[{"name":"Potato Chips","productId":12345,"price":0.75,"description":"Fried Snack","quantity":35}],"costumer":{"name":"Nicole Lara","mail":"nicole@espe.com","id":"1751585926"},"date":"Jan 23, 2021 3:44:38 AM"}
-<<<<<<< HEAD:06-Code/University Restaurant Control System/ordersList.json
-=======
-{"orderId":5,"product":[{"name":"Bolon","productId":12341,"price":1.0,"description":"With Chesse or Chicharron","quantity":20}],"costumer":{"name":"cristiantest","mail":"test","id":"12345678790"},"date":"Jan 23, 2021 3:27:14 PM"}
-{"orderId":6,"product":[{"name":"Juice","productId":12343,"price":1.0,"description":"Orange or lemon juice","quantity":40},{"name":"Potato Chips","productId":12345,"price":0.75,"description":"Fried Snack","quantity":35}],"costumer":{"name":"Nicole","mail":"nicola45@gmail.com","id":"1751165380"},"date":"Jan 23, 2021, 3:53:14 PM"}
->>>>>>> 8b944930bbdba7d65b545351f58d449ec74a5e86:06-Code/University Restaurant Control System V.1.10/ordersList.json
