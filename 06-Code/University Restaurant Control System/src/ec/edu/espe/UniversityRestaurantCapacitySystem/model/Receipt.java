@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @authors GROUP 3 Software-Runners ESPE-DCCO
+ * @author Cristian Maranaje Software-Runners ESPE-DCCO
  */
 public class Receipt {
     private int reciptId;

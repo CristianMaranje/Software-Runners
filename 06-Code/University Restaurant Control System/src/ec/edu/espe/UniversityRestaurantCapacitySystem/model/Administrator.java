@@ -10,7 +10,7 @@ import university.restaurant.capacity.control.view.Display;
 
 /**
  *
- * @authors GROUP 3 Software-Runners ESPE-DCCO
+ * @author Nicolas Hidrobo Software-Runners ESPE-DCCO
  */
 public class Administrator {
 

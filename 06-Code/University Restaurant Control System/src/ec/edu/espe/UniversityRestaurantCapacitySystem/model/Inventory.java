@@ -3,7 +3,7 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
 /**
  *
- * @authors GROUP 3 Software-Runners ESPE-DCCO
+ * @author Nicolas Hidrobo Software-Runners ESPE-DCCO
  */
 public class Inventory {
 
