@@ -2,7 +2,7 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.controller;
 
 import ec.edu.espe.filemanager.utils.FileManager;
 import java.util.List;
-import university.restaurant.capacity.control.view.Display;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.view.Display;
 
 /**
  *

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import university.restaurant.capacity.control.view.Display;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.view.Display;
 
 /**
  *
@@ -20,6 +20,7 @@ public class Administrator {
     public void registerNewOrder(List<Order> orders) {
         Display display = new Display();
         Gson gson = new Gson();
+        Order order = new Order();
         Scanner scan = new Scanner(System.in);
         Costumer costumer = new Costumer();
         List<String> allOrders = FileManager.findAll("ordersList.json");
@@ -48,56 +49,15 @@ public class Administrator {
         }
 
         //gets the products from the json file productList
-        List<String> aviableProducts = FileManager.findAll("productsList.json");
-        display.displayAllProducts(aviableProducts);
-        int sizeOfAviableProducts = aviableProducts.size();
-        int option = 1;
-        int cont = 0;
+        Product[] productToInsert = order.addNewProduct();
 
-        Product[] products = new Product[sizeOfAviableProducts];
-
-        while (option == 1) {
-            option = 0;
-            System.out.print("SELECT THE ID OF THE PRODUCT YOU WANT TO ADD TO THE ORDER: ");
-            String id = scan.nextLine();
-
-            List<String> foundProducts = FileManager.find("productsList.json", id);
-
-            for (String foundProduct : foundProducts) {
-                products[cont] = gson.fromJson(foundProduct, Product.class);
-                cont++;
-            }
-
-            System.out.println("1. ADD PRODUCT TO ORDER");
-            System.out.println("2. FINISH ORDER");
-            option = scan.nextInt();
-            scan.nextLine();
-            
-            
-        }
-        
-        int cont2=0;
-        for (int i = 0; i < products.length; i++) {
-            if (products[i] != null) {
-                cont2++;
-            }
-        }
-        Product[] productToInsert = new Product[cont];
-        for (int i = 0; i < cont; i++) {
-            productToInsert[i] = products[i];
-            
-        }
-        
-        
         Date todayDate = new Date();
         Order toInsertInOrder;
         toInsertInOrder = new Order(newOrderID, productToInsert, costumer, todayDate);
         orders.add(toInsertInOrder);
         FileManager.save("ordersList.json", gson.toJson(toInsertInOrder, Order.class));
         display.displayReceipt(gson.toJson(toInsertInOrder, Order.class));
-        
-        
-        
+
     }
 
     public Administrator(String name, ArrayList<Order> cashierOrders) {

@@ -1,4 +1,4 @@
-package university.restaurant.capacity.control.view;
+package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Costumer;

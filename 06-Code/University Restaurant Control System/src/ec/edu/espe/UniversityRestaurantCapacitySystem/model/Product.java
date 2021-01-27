@@ -1,7 +1,6 @@
 
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
-import java.util.Date;
 import java.util.Scanner;
 
 /**

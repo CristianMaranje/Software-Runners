@@ -1,7 +1,6 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
 import com.google.gson.Gson;
-import ec.edu.espe.filemanager.utils.FileManager;
 import java.util.Scanner;
 
 /**
