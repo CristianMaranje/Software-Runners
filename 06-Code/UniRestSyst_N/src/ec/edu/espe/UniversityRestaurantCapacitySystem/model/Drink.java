@@ -24,7 +24,11 @@ public class Drink extends Product {
         this.sugarFree = sugarFree;
         this.expiryDate = expiryDate;
     }
-    
+    public Drink(){
+        isHot = false;
+        sugarFree = false;
+        expiryDate = getExpiryDate();
+    }
     public boolean isIsHot() {
         return isHot;
     }
@@ -92,7 +96,6 @@ public class Drink extends Product {
     
    
    public Product addNewDrink(){
-       
         int temperature;
         int sugar;
         expiryDate = LocalDate.now().plusDays(10);

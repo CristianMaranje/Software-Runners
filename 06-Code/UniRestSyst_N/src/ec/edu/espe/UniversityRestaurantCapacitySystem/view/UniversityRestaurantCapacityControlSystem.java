@@ -26,7 +26,9 @@ public class UniversityRestaurantCapacityControlSystem {
      */
     public static void main(String[] args) throws InterruptedException {
 
-        Product products[]= new Product[3];
+        LogIn v = new LogIn();
+        v.setVisible(true);
+      Product products[]= new Product[3];
         
         //products[0]= new Product("Hamburguesa", 1357,1.50f, "Sin cebolla", 20) {}; // Do we need to have instances of products ?
         products[0]= new MainCourse("menu",2468, 1, "secondplate", 4 , 10, "anysoup");
@@ -40,9 +42,9 @@ public class UniversityRestaurantCapacityControlSystem {
             System.out.println("pice for sale - > "+ product.computePriceForSale());
             System.out.println("=======");
         }
-        /*Display display = new Display();
+        Display display = new Display();
         List<String> foundLines;
-        Product product = new Product();
+        Product product = new Drink();
         Costumer costumer = new Costumer();
         List<Order> orders = new ArrayList<Order>();
         Gson gson = new Gson();
@@ -57,7 +59,6 @@ public class UniversityRestaurantCapacityControlSystem {
                     break;
                 case 2:
                     controller.printAllOrders();
-
                     break;
                 case 3:
                     FileManager.save("product.json", gson.toJson(product.addNewProduct()));
@@ -93,35 +94,6 @@ public class UniversityRestaurantCapacityControlSystem {
         System.out.println("(2).Drink");
         System.out.println("(1).Dessert");
         election= scan.nextInt();
-        */
-       
-       
-        
-        
-     
-       
-        
-        
-        /*MainCourse product2 = new MainCourse("ensalada", 01, 3, "ensalada saludable", 10, 2,"vegan");
-        System.out.println("1.-" + product2);
-
-        MainCourse salchichas = new MainCourse("salchichas", 34, 2.05f, "salchicha asada", 4, 2, "normal");
-        System.out.println("2.-Salchichas-->"+salchichas);
-        
-        MainCourse product3 = new MainCourse();
-        product3 = product3.addMainCourse();
-        System.out.println("3.- New product" + product3);
-
-        Drink drink1 = new Drink ("Soda", 0, 0, "Coca Cola", 1 , true, true, LocalDate.now().plusDays(10));
-        drink1= drink1.addDrink();
-        System.out.println("1.-"+drink1);
-        
-        Drink drink2 = new Drink ("Juice", 0, 0, "Tampico", 1 , true, true, LocalDate.now().plusDays(10));
-        drink1= drink1.addDrink();
-        System.out.println("1.-"+drink1);*/
-        
-        
-        
         
     }
 }
