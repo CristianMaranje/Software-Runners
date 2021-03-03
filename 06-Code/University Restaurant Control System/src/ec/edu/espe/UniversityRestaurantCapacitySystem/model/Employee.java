@@ -11,9 +11,10 @@ import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
  *
  * @author Ariel Nicolás Hidrobo Fernández
  */
-public class Employee {
+public class Employee extends Costumer{
     
     float disscount;
+    
     
     public void  getDisscount(Product product) {
         

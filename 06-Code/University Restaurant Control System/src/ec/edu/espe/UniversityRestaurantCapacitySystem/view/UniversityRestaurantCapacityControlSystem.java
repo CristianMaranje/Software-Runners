@@ -1,7 +1,7 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import com.google.gson.Gson;
-import static com.sun.glass.ui.Cursor.setVisible;
+//import static com.sun.glass.ui.Cursor.setVisible;
 import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.Controller;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Administrator;

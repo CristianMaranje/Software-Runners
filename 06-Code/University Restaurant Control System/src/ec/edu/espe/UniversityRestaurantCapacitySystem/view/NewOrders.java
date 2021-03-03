@@ -84,7 +84,7 @@ public class NewOrders extends javax.swing.JFrame {
     private void btmSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmSaveActionPerformed
         // TODO add your handling code here:
         Administrator cashier = new Administrator();
-        cashier.registerNewOrder(orders,txtIDProduct.getText());
+//        cashier.registerNewOrder(orders,txtIDProduct.getText());
     }//GEN-LAST:event_btmSaveActionPerformed
 
     /**

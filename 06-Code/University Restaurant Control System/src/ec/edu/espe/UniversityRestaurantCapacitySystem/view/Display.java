@@ -61,17 +61,17 @@ public class Display {
     public void displayOfCostumer(List<String> costumers) {
         Gson gson = new Gson();
         //Costumer costumer = new Costumer();
-        Costumer student = new Student();
-        Costumer employee= new Employee();
-        Product product = new Product();
-       
-        for (String costumerToDisplay : costumers) {
-            student = gson.fromJson(costumerToDisplay, Costumer.class);
-            System.out.println("NAME: " + student.getName());
-            System.out.println("ID: " + student.getId());
-            System.out.println("E-MAIL: " + student.getMail());
-            System.out.println("-------------------------------------------------");
-        }
+//        Costumer student = new Student();
+//        Costumer employee= new Employee();
+//        Product product = new Product();
+//       
+//        for (String costumerToDisplay : costumers) {
+//            student = gson.fromJson(costumerToDisplay, Costumer.class);
+//            System.out.println("NAME: " + student.getName());
+//            System.out.println("ID: " + student.getId());
+//            System.out.println("E-MAIL: " + student.getMail());
+//            System.out.println("-------------------------------------------------");
+//        }
     }
 
     public void displayAllOrders(List<String> orders) {

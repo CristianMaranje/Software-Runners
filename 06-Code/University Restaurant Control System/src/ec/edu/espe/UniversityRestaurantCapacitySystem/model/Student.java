@@ -9,13 +9,16 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
  *
  * @author Ariel Nicolás Hidrobo Fernández
  */
-public class Student  {
+public class Student  extends Costumer{
     
     private float disscount;
 
-    public Student(String name, String mail, String id) {
-        
+    public Student(float disscount, String name, String mail, String id) {
+        super(name, mail, id);
+        this.disscount = disscount;
     }
+
+    
 
     @Override
     public String toString() {
