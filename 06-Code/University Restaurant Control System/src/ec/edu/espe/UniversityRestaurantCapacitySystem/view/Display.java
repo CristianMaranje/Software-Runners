@@ -1,9 +1,12 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import com.google.gson.Gson;
+
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Costumer;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Employee;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Order;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Student;
 import ec.edu.espe.filemanager.utils.FileManager;
 import java.util.List;
 import java.util.Scanner;
@@ -57,12 +60,16 @@ public class Display {
 
     public void displayOfCostumer(List<String> costumers) {
         Gson gson = new Gson();
-        Costumer costumer = new Costumer();
+        //Costumer costumer = new Costumer();
+        Costumer student = new Student();
+        Costumer employee= new Employee();
+        Product product = new Product();
+       
         for (String costumerToDisplay : costumers) {
-            costumer = gson.fromJson(costumerToDisplay, Costumer.class);
-            System.out.println("NAME: " + costumer.getName());
-            System.out.println("ID: " + costumer.getId());
-            System.out.println("E-MAIL: " + costumer.getMail());
+            student = gson.fromJson(costumerToDisplay, Costumer.class);
+            System.out.println("NAME: " + student.getName());
+            System.out.println("ID: " + student.getId());
+            System.out.println("E-MAIL: " + student.getMail());
             System.out.println("-------------------------------------------------");
         }
     }
