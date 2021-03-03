@@ -3,3 +3,4 @@
 {"orderId":3,"product":[{"name":"Juice","productId":12343,"price":1.0,"description":"Orange or lemon juice","quantity":40}],"costumer":{"name":"Nicolas Hidrobo","mail":"nicolasespe.com","id":"1751577725"},"date":"Jan 23, 2021 3:41:39 AM"}
 {"orderId":4,"product":[{"name":"Potato Chips","productId":12345,"price":0.75,"description":"Fried Snack","quantity":35}],"costumer":{"name":"Nicole Lara","mail":"nicole@espe.com","id":"1751585926"},"date":"Jan 23, 2021 3:44:38 AM"}
 {"orderId":5,"product":[{"name":"Juice","productId":12343,"price":1.0,"description":"Orange or lemon juice","quantity":40}],"costumer":{"name":"Cristian 2","mail":"cris","id":"1357902468"},"date":"Jan 27, 2021 11:51:11 AM"}
+{"orderId":6,"product":[{"name":"Potato Chips","productId":12345,"price":0.75,"description":"Fried Snack","quantity":35}],"costumer":{"name":"cristian","mail":"test","id":"6789"},"date":"Mar 2, 2021 9:48:45 PM"}

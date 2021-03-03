@@ -26,13 +26,11 @@ public class Costumer {
     }
     
     public Costumer addNewCostumer() {
-        Gson gson = new Gson();
         Scanner scan = new Scanner(System.in);
         System.out.print("ENTER COSTUMER NAME:");
         String name = scan.nextLine();
         System.out.print("ENTER COSTUMER MAIL:");
         String mail = scan.nextLine();
-        //scan.nextLine();
         System.out.print("ENTER COSTUMER ID: ");
         String costumerID = scan.nextLine();
         System.out.println("");
