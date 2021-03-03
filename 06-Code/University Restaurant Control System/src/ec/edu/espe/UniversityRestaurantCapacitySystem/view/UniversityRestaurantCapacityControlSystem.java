@@ -1,8 +1,11 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import com.google.gson.Gson;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCollection;
 //import static com.sun.glass.ui.Cursor.setVisible;
 import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
+import static ec.edu.espe.FileManagerDB.utils.FileManagerDB.initializeMongo;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.Controller;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Administrator;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Costumer;
@@ -25,9 +28,10 @@ public class UniversityRestaurantCapacityControlSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws InterruptedException {
-        LogIn l = new LogIn();
-        l.setVisible(true);
-        /*Scanner scan = new Scanner(System.in);
+//        LogIn l = new LogIn();
+//        l.setVisible(true);
+
+        Scanner scan = new Scanner(System.in);
         Display display = new Display();
         List<String> foundLines;
         Product product = new Product();
@@ -53,6 +57,10 @@ public class UniversityRestaurantCapacityControlSystem {
                     break;
                 case 3:
                     FileManager.save("productsList.json", gson.toJson(product.addNewProduct()));
+                    
+
+        
+    
                     break;
                 case 4:
                     System.out.println("SELECT THE TYPE OF COSTUMER :");
@@ -86,7 +94,7 @@ public class UniversityRestaurantCapacityControlSystem {
                     break;
 
             }
-        } while (7 >= option && option > 0);*/
+        } while (7 >= option && option > 0);
 
     }
 

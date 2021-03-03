@@ -5,6 +5,10 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
+import com.mongodb.BasicDBObject;
+import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
+import java.util.Scanner;
+
 /**
  *
  * @author Ariel Nicolás Hidrobo Fernández
@@ -13,20 +17,38 @@ public class Student  extends Costumer{
     
     private float disscount;
 
-    public Student(float disscount, String name, String mail, String id) {
+    public Student(String name, String mail, String id, float disscount) {
         super(name, mail, id);
         this.disscount = disscount;
     }
-
+    
+    @Override
+   public Costumer addNewCostumer() {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("ENTER COSTUMER NAME:");
+        String name = scan.nextLine();
+        System.out.print("ENTER COSTUMER MAIL:");
+        String mail = scan.nextLine();
+        System.out.print("ENTER COSTUMER ID: ");
+        String costumerID = scan.nextLine();
+        System.out.println("");
+        float disscount = 0.15f;
+        
+        Student student = new Student(name, mail, costumerID, disscount);
+        
+        BasicDBObject docCostumer =new BasicDBObject();
+        docCostumer.append("name", name).append("mail", mail).append("id", costumerID).append("disscount", disscount);
+        FileManagerDB.save(docCostumer, "Costumers");
+        
+        return student;
+    }
     
 
     @Override
     public String toString() {
         return "Student{" + "disscount=" + disscount + '}';
     }
-   
-    
-    
+ 
     
     public Student() {
     }

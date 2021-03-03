@@ -32,15 +32,29 @@ public class ShowCostumer extends javax.swing.JFrame {
         
         DBCursor cursor = collection1.find();
         
-        String[] data= new String[10] ;
+        String[] data= new String[10];
+        
+        
         
         while (cursor.hasNext()) {
+            int i =0;
+            while(i<data.length){
+                
+            }
+                data[i]= cursor.next().toString();
+                modelo.addRow(data);
+                i++;
+            }
+            
+        
+        
+        /*while (cursor.hasNext()) {
             for ( int i=0 ; i < data.length ; i++) {
                 data[i]= cursor.next().toString();
                 modelo.addRow(data);
                 
             }
-        }
+        }*/
     }
 
     /**

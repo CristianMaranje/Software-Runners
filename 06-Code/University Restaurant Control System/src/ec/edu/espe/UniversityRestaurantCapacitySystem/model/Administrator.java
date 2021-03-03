@@ -28,7 +28,6 @@ public class Administrator {
     private String name;
     private ArrayList<Order> cashierOrders;
 
-
     public void registerNewOrder(List<Order> orders) {
 
         //conects to the mongoDB Atlas
@@ -40,7 +39,9 @@ public class Administrator {
         Gson gson = new Gson();
         Order order = new Order();
         Scanner scan = new Scanner(System.in);
-        Costumer costumer = new Costumer();
+        Student costumer = new Student() {
+
+        };
         List<String> allOrders = FileManager.findAll("ordersList.json");
 
         int newOrderID = 1;
@@ -63,7 +64,7 @@ public class Administrator {
         } while (foundCostumer == null);
         display.displayOfCostumer(foundCostumer);
         for (String string : foundCostumer) {
-            costumer = gson.fromJson(string, Costumer.class);
+            costumer = gson.fromJson(string, Student.class);
         }
 
         //gets the products from the mongodb Atlas 
@@ -89,13 +90,13 @@ public class Administrator {
                 .append("Product", docProduct)
                 .append("costumer", docCostumer)
                 .append("date", toInsertInOrder.getDate());
-        
+
         FileManagerDB.save(doc, ("Orders"));
         FileManager.save("ordersList.json", gson.toJson(toInsertInOrder, Order.class));
         display.displayReceipt(gson.toJson(toInsertInOrder, Order.class));
 
     }
-    
+
     public boolean validate(String username, String pass) {
         boolean verified = false;
         Gson gson = new Gson();
@@ -158,4 +159,3 @@ public class Administrator {
     }
 
 }
-
