@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  * @author Juan Gallardo Software-Runners ESPE-DCCO
  */
-public class Costumer {
+public abstract class Costumer {
 
     private String name;
     private String mail;
@@ -45,7 +45,7 @@ public class Costumer {
         return costumer;
     }
 
-    
+    public abstract float getDisscount();
     
     @Override
     public String toString() {

@@ -145,5 +145,26 @@ public class CostumerTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getDisscount method, of class Costumer.
+     */
+    @Test
+    public void testGetDisscount() {
+        System.out.println("getDisscount");
+        Costumer instance = new CostumerImpl();
+        float expResult = 0.0F;
+        float result = instance.getDisscount();
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    public class CostumerImpl extends Costumer {
+
+        public float getDisscount() {
+            return 0.0F;
+        }
+    }
     
 }
