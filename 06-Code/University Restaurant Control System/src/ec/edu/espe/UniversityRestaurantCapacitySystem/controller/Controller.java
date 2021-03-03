@@ -12,6 +12,7 @@ public class Controller {
 
 
     public void printAllOrders() {
+        
         List<String> orders = FileManager.findAll("ordersList.json");
         Display display = new Display();
         display.displayAllOrders(orders);

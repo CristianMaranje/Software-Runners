@@ -14,10 +14,11 @@ import java.util.Scanner;
  */
 public class Display {
 
-    public String productToFind() {
+    public int productToFind() {
         Scanner scan = new Scanner(System.in);
         System.out.println("ENTER THE ID OF THE PRODUCT YOU WANT TO FIND");
-        String name = scan.nextLine();
+        int name = scan.nextInt();
+        System.out.println(name);
         return name;
     }
 

@@ -1,6 +1,8 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
 import com.google.gson.Gson;
+import com.mongodb.BasicDBObject;
+import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
 import java.util.Scanner;
 
 /**
@@ -35,6 +37,10 @@ public class Costumer {
         String costumerID = scan.nextLine();
         System.out.println("");
         Costumer costumer = new Costumer(name, mail, costumerID);
+        
+        BasicDBObject docCostumer =new BasicDBObject();
+        docCostumer.append("name", name).append("mail", mail).append("id", id);
+        FileManagerDB.save(docCostumer, "Costumers");
         
         return costumer;
     }

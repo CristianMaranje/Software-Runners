@@ -39,6 +39,7 @@ public class UniversityRestaurantCapacityControlSystem {
                     cashier.registerNewOrder(orders);
                     break;
                 case 2:
+                    //FileManagerDB.showOrders("Orders");
                     controller.printAllOrders();
 
                     break;
@@ -50,8 +51,10 @@ public class UniversityRestaurantCapacityControlSystem {
                     System.out.println("**NEW COSTUMER ADDED***\n");
                     break;
                 case 5:
-                    foundLines = FileManager.find("productsList.json", display.productToFind());
-                    System.out.println(foundLines);
+                    FileManagerDB.findProduct((display.productToFind()), "Products");
+                    
+                    //foundLines = FileManager.find("productsList.json", display.productToFind());
+                    //System.out.println(foundLines);
                     break;
                 case 6:
                     FileManagerDB.showProducts("Products");
