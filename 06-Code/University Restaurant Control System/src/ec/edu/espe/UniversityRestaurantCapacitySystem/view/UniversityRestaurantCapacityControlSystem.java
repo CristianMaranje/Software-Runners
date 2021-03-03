@@ -2,6 +2,7 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import com.google.gson.Gson;
+import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.Controller;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Administrator;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Costumer;
@@ -53,6 +54,7 @@ public class UniversityRestaurantCapacityControlSystem {
                     System.out.println(foundLines);
                     break;
                 case 6:
+                    FileManagerDB.showProducts("Products");
                     foundLines = FileManager.findAll("productsList.json");
                     System.out.println(foundLines);
                     break;

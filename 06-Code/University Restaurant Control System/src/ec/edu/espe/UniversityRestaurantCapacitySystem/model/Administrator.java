@@ -7,6 +7,7 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
 import ec.edu.espe.filemanager.utils.FileManager;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,13 +28,6 @@ public class Administrator {
     public void registerNewOrder(List<Order> orders) {
 
         //conects to the mongoDB Atlas
-        MongoClient client;
-        DB dataBase;
-        DBCollection collection1;
-        client = new MongoClient(new MongoClientURI("mongodb+srv://Cristian:t5UDR5Iaiqarbm4k@clustercristian.rq2r6.mongodb.net/test"));
-        dataBase = client.getDB("UniversityRestaurant");
-        collection1 = dataBase.getCollection("Orders");
-
         BasicDBObject doc = new BasicDBObject();
         BasicDBList docProduct = new BasicDBList();
         BasicDBObject docCostumer = new BasicDBObject();
@@ -83,7 +77,7 @@ public class Administrator {
                     .append("Cuantity", productToInsert[i].getQuantity()));
         }
 
-        docCostumer.append("name", costumer.getMail())
+        docCostumer.append("name", costumer.getName())
                 .append("mail", costumer.getMail())
                 .append("id", costumer.getId());
 
@@ -91,8 +85,8 @@ public class Administrator {
                 .append("Product", docProduct)
                 .append("costumer", docCostumer)
                 .append("date", toInsertInOrder.getDate());
-        collection1.insert(doc);
         
+        FileManagerDB.save(doc, ("Orders"));
         FileManager.save("ordersList.json", gson.toJson(toInsertInOrder, Order.class));
         display.displayReceipt(gson.toJson(toInsertInOrder, Order.class));
 
