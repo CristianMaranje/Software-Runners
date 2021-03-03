@@ -14,6 +14,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.view.Display;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  *
@@ -90,6 +94,36 @@ public class Administrator {
         FileManager.save("ordersList.json", gson.toJson(toInsertInOrder, Order.class));
         display.displayReceipt(gson.toJson(toInsertInOrder, Order.class));
 
+    }
+    
+    public boolean validate(String username, String pass) {
+        boolean verified = false;
+        Gson gson = new Gson();
+        ArrayList lineretrived = new ArrayList<>();
+        Costumer costumer;
+        String line;
+        FileReader readFile;
+        BufferedReader read;
+        try {
+            readFile = new FileReader("costumersList.json");
+            read = new BufferedReader(readFile);
+            while ((line = read.readLine()) != null) {
+                String[] data;
+                data = line.split(",");
+                for (int i = 0; i < data.length; i++) {
+                    if (data[i].equals("{\"name\":\"" + username + "\"")) {
+                        lineretrived.add(line);
+                        costumer = gson.fromJson(lineretrived.get(i).toString(), Costumer.class);
+                        if (costumer.getName().equals(username) && costumer.getId().equals(pass)) {
+                            verified = true;
+                        }
+                    }
+                }
+            }
+        } catch (FileNotFoundException ex) {
+        } catch (IOException ex) {
+        }
+        return verified;
     }
 
     public Administrator(String name, ArrayList<Order> cashierOrders) {
