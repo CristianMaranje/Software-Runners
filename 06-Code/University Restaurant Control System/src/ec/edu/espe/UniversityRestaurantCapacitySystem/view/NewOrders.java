@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
+import com.google.gson.Gson;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Administrator;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Order;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public class NewOrders extends javax.swing.JFrame {
         
-        List<Order> orders = new ArrayList<Order>();
+        
     /**
      * Creates new form NewOrders
      */
@@ -34,21 +35,28 @@ public class NewOrders extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtIDProduct = new javax.swing.JTextField();
-        btmSave = new javax.swing.JButton();
+        txtIDProductForOrder = new javax.swing.JTextField();
+        btnSaveOrder = new javax.swing.JButton();
+        lblNewOrder = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("ID Product ");
 
-        txtIDProduct.setText("jTextField1");
-
-        btmSave.setText("jButton1");
-        btmSave.addActionListener(new java.awt.event.ActionListener() {
+        txtIDProductForOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btmSaveActionPerformed(evt);
+                txtIDProductForOrderActionPerformed(evt);
             }
         });
+
+        btnSaveOrder.setText("SAVE");
+        btnSaveOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveOrderActionPerformed(evt);
+            }
+        });
+
+        lblNewOrder.setText("New Order");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,35 +65,51 @@ public class NewOrders extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
+                        .addGap(88, 88, 88)
                         .addComponent(jLabel1)
-                        .addGap(80, 80, 80)
-                        .addComponent(txtIDProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(57, 57, 57)
+                        .addComponent(txtIDProductForOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(btmSave)))
-                .addContainerGap(162, Short.MAX_VALUE))
+                        .addGap(243, 243, 243)
+                        .addComponent(lblNewOrder))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(btnSaveOrder)))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(20, 20, 20)
+                .addComponent(lblNewOrder)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtIDProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                .addComponent(btmSave)
-                .addGap(51, 51, 51))
+                    .addComponent(txtIDProductForOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addComponent(btnSaveOrder)
+                .addGap(46, 46, 46))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btmSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmSaveActionPerformed
+    private void btnSaveOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveOrderActionPerformed
         // TODO add your handling code here:
+        List<Order> orders = new ArrayList<Order>();
+        Gson gson = new Gson();
         Administrator cashier = new Administrator();
+        
+        cashier.registerNewOrder(orders);
+        
+        
+        
 //        cashier.registerNewOrder(orders,txtIDProduct.getText());
-    }//GEN-LAST:event_btmSaveActionPerformed
+    }//GEN-LAST:event_btnSaveOrderActionPerformed
+
+    private void txtIDProductForOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDProductForOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIDProductForOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,8 +147,9 @@ public class NewOrders extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btmSave;
+    private javax.swing.JButton btnSaveOrder;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtIDProduct;
+    private javax.swing.JLabel lblNewOrder;
+    private javax.swing.JTextField txtIDProductForOrder;
     // End of variables declaration//GEN-END:variables
 }
