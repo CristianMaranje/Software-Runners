@@ -129,12 +129,10 @@ public class NewCostumer extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCostumerIDActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        //Costumer costumer = new Student(txtCostumerName.getText(), txtCostumerMail.getText(), txtCostumerID.getText());
-        //FileManager.save("costumersList.json", gson.toJson(costumer));
-        BasicDBObject docCostumer =new BasicDBObject();
-        docCostumer.append("name", txtCostumerName.getText()).append("mail", txtCostumerMail.getText()).append("id", txtCostumerID.getText());
-        DBManager.save(docCostumer, "Costumers");
+        
+        BasicDBObject costumer =new BasicDBObject();
+        costumer.append("name", txtCostumerName.getText()).append("mail", txtCostumerMail.getText()).append("id", txtCostumerID.getText());
+        DBManager.save(costumer, "Costumers");
         JOptionPane.showMessageDialog(this, "COSTUMER SAVED");
         
     }//GEN-LAST:event_jButton1ActionPerformed

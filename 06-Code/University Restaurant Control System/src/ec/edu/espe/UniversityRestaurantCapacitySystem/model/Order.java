@@ -37,7 +37,7 @@ public class Order {
         Product product = new Product();
         Scanner scan = new Scanner(System.in);
         int option = 1;
-        BasicDBList productsList = new BasicDBList();
+        BasicDBList products = new BasicDBList();
         BasicDBObject foundProduct = new BasicDBObject();
         int id = 0;
         while (option == 1) {
@@ -54,7 +54,7 @@ public class Order {
                     foundProduct = DBManager.findProduct(id, "Products");
                 }
                 if(foundProduct.isEmpty()== false){
-                    productsList.add(foundProduct);
+                    products.add(foundProduct);
                 }
                 
             } while (foundProduct.isEmpty());
@@ -65,7 +65,7 @@ public class Order {
             scan.nextLine();
         }
 
-        return productsList;
+        return products;
     }
 
     public Date getDate() {

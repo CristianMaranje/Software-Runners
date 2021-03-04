@@ -5,15 +5,11 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
-import com.google.gson.Gson;
+import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import ec.edu.espe.DBManager.utils.DBManager;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Administrator;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Order;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Student;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,6 +38,10 @@ public class NewOrders extends javax.swing.JFrame {
         txtIDCostumer = new javax.swing.JTextField();
         btnVerificateCostumer = new javax.swing.JButton();
         lblNewOrder = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtProductID = new javax.swing.JTextField();
+        btnAddProduct = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -62,6 +62,28 @@ public class NewOrders extends javax.swing.JFrame {
 
         lblNewOrder.setText("New Order");
 
+        jLabel2.setText("Product ID");
+
+        txtProductID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProductIDActionPerformed(evt);
+            }
+        });
+
+        btnAddProduct.setText("Add Product");
+        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductActionPerformed(evt);
+            }
+        });
+
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,12 +95,24 @@ public class NewOrders extends javax.swing.JFrame {
                         .addComponent(lblNewOrder))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
-                        .addComponent(jLabel1)
-                        .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnVerificateCostumer)
-                            .addComponent(txtIDCostumer, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtIDCostumer, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(txtProductID)
+                            .addComponent(btnVerificateCostumer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(189, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnAddProduct)
+                        .addGap(225, 225, 225))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnSave)
+                        .addGap(237, 237, 237))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,16 +123,24 @@ public class NewOrders extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtIDCostumer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnVerificateCostumer)
-                .addGap(101, 101, 101))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtProductID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(btnAddProduct)
+                .addGap(40, 40, 40)
+                .addComponent(btnSave)
+                .addContainerGap(238, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    BasicDBObject docCostumer = new BasicDBObject();
     private void btnVerificateCostumerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificateCostumerActionPerformed
-        BasicDBObject docCostumer = new BasicDBObject();
 
         //search for existing costrumer in DB
         do {
@@ -107,18 +149,56 @@ public class NewOrders extends javax.swing.JFrame {
             if (docCostumer.isEmpty()) {
                 NewCostumer c = new NewCostumer();
                 c.setVisible(true);
-//                JOptionPane.showConfirmDialog(null, "NO COSTUMER FOUND", JOptionPane.OK_OPTION);
-                JOptionPane.showMessageDialog(this,"COSTUMER NOT FOUND, REGISTER A NEW ONE");
+                JOptionPane.showMessageDialog(this, "COSTUMER NOT FOUND, REGISTER A NEW ONE");
             }
-            
+
         } while (docCostumer.isEmpty());
-        
-//        cashier.registerNewOrder(orders,txtIDProduct.getText());
+        JOptionPane.showMessageDialog(this, "COSTUMER FOUND :)");
+//        AddProduct p = new AddProduct();
+//        p.setVisible(true);
+
     }//GEN-LAST:event_btnVerificateCostumerActionPerformed
 
     private void txtIDCostumerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDCostumerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDCostumerActionPerformed
+
+    BasicDBList products = new BasicDBList();
+    private void txtProductIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductIDActionPerformed
+
+    }//GEN-LAST:event_txtProductIDActionPerformed
+
+    Product product = new Product();
+    BasicDBObject foundProduct = new BasicDBObject();
+    int id = 0;
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+
+        System.out.print("SELECT THE ID OF THE PRODUCT YOU WANT TO ADD TO THE ORDER: ");
+        id = Integer.parseInt(txtProductID.getText());
+
+        foundProduct = DBManager.findProduct(id, "Products");
+
+        while (foundProduct.isEmpty()) {
+            System.out.println("PRODUCT NOT FOUND");
+            product.addNewProduct();
+            foundProduct = DBManager.findProduct(id, "Products");
+        }
+        if (foundProduct.isEmpty() == false) {
+            products.add(foundProduct);
+            JOptionPane.showMessageDialog(this, "ORDER ADDED");
+        }
+
+
+    }//GEN-LAST:event_btnAddProductActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        BasicDBObject order = new BasicDBObject();
+        Date date = new Date();
+        order.append("Product", products).append("costumer", docCostumer).append("date", date);
+        DBManager.save(order, "Orders");
+        JOptionPane.showMessageDialog(this, "ORDER SAVED");
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,9 +236,13 @@ public class NewOrders extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddProduct;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnVerificateCostumer;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblNewOrder;
     private javax.swing.JTextField txtIDCostumer;
+    private javax.swing.JTextField txtProductID;
     // End of variables declaration//GEN-END:variables
 }

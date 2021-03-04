@@ -30,21 +30,7 @@ public class ShowCostumer extends javax.swing.JFrame {
         DBCollection collection1 = DBManager.initializeMongo("Costumers");
         DBCursor cursor = collection1.find();
         
-        String[] data= new String[10];
-        
-        
-        
-//        while (cursor.hasNext()) {
-//            int i =0;
-//            while(i<data.length){
-//                
-//            }
-//                data[i]= cursor.next().toString();
-//                modelo.addRow(data);
-//                i++;
-//            }
-            
-        
+        String[] data= new String[30];
         
         while (cursor.hasNext()) {
             for ( int i=0 ; i < data.length ; i++) {

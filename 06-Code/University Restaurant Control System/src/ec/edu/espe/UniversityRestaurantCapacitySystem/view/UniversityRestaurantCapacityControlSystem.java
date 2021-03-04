@@ -1,16 +1,13 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
-import com.google.gson.Gson;
 import ec.edu.espe.DBManager.utils.DBManager;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.Controller;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Administrator;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Costumer;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Employee;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Order;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Student;
 import ec.edu.espe.filemanager.utils.FileManager;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,17 +21,13 @@ public class UniversityRestaurantCapacityControlSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws InterruptedException {
-//        LogIn l = new LogIn();
-//        l.setVisible(true);
 
         Scanner scan = new Scanner(System.in);
-        Display display = new Display();
+        Screen display = new Screen();
         List<String> foundLines;
         Product product = new Product();
-        // Costumer costumer = new Costumer();
         Costumer student = new Student();
         Costumer employee= new Employee();
-        Gson gson = new Gson();
         Administrator cashier = new Administrator();
         Controller controller = new Controller();
         int type;
@@ -52,10 +45,6 @@ public class UniversityRestaurantCapacityControlSystem {
                     break;
                 case 3:
                     product.addNewProduct();
-                    //FileManager.save("productsList.json", gson.toJson(product.addNewProduct()));
-                    
-
-        
     
                     break;
                 case 4:
@@ -65,19 +54,15 @@ public class UniversityRestaurantCapacityControlSystem {
                     type = scan.nextInt();
                     if (type == 1) {
                         student.addNewCostumer();
-                        //FileManager.save("costumersList.json", gson.toJson(student.addNewCostumer()));
                         System.out.println("**NEW STUDENT COSTUMER ADDED***\n");
                     } else {
                         employee.addNewCostumer();
-                        //FileManager.save("costumersList.json", gson.toJson(employee.addNewCostumer()));
                         System.out.println("**NEW EMPLOYEE COSTUMER ADDED***\n");
                     }
                     break;
                 case 5:
                     DBManager.findProduct((display.productToFind()), "Products");
 
-                    //foundLines = FileManager.find("productsList.json", display.productToFind());
-                    //System.out.println(foundLines);
                     break;
                 case 6:
                     DBManager.showProducts("Products");

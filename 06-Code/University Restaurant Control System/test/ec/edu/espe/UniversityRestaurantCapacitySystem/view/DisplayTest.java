@@ -39,12 +39,12 @@ public class DisplayTest {
     }
 
     /**
-     * Test of productToFind method, of class Display.
+     * Test of productToFind method, of class Screen.
      */
     @Test
     public void testProductToFind() {
         System.out.println("productToFind");
-        Display instance = new Display();
+        Screen instance = new Screen();
         int expResult = 0;
         int result = instance.productToFind();
         assertEquals(expResult, result);
@@ -53,12 +53,12 @@ public class DisplayTest {
     }
 
     /**
-     * Test of displayMenu method, of class Display.
+     * Test of displayMenu method, of class Screen.
      */
     @Test
     public void testDisplayMenu() {
         System.out.println("displayMenu");
-        Display instance = new Display();
+        Screen instance = new Screen();
         int expResult = 0;
         int result = instance.displayMenu();
         assertEquals(expResult, result);
@@ -67,52 +67,52 @@ public class DisplayTest {
     }
 
     /**
-     * Test of displayAllProducts method, of class Display.
+     * Test of displayAllProducts method, of class Screen.
      */
     @Test
     public void testDisplayAllProducts() {
         System.out.println("displayAllProducts");
         List<String> products = null;
-        Display instance = new Display();
+        Screen instance = new Screen();
         instance.displayAllProducts(products);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of displayOfCostumer method, of class Display.
+     * Test of displayOfCostumer method, of class Screen.
      */
     @Test
     public void testDisplayOfCostumer() {
         System.out.println("displayOfCostumer");
         List<String> costumers = null;
-        Display instance = new Display();
+        Screen instance = new Screen();
         instance.displayOfCostumer(costumers);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of displayAllOrders method, of class Display.
+     * Test of displayAllOrders method, of class Screen.
      */
     @Test
     public void testDisplayAllOrders() {
         System.out.println("displayAllOrders");
         List<String> orders = null;
-        Display instance = new Display();
+        Screen instance = new Screen();
         instance.displayAllOrders(orders);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of displayReceipt method, of class Display.
+     * Test of displayReceipt method, of class Screen.
      */
     @Test
     public void testDisplayReceipt() {
         System.out.println("displayReceipt");
         String orders = "";
-        Display instance = new Display();
+        Screen instance = new Screen();
         instance.displayReceipt(orders);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
