@@ -5,18 +5,28 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Xavier Cordova ESPE-DCCO
  */
 public class MainMenu extends javax.swing.JFrame {
 
+    FondoPanel fondo = new FondoPanel();
+
     /**
      * Creates new form MainMenu
      */
     public MainMenu() {
+
+        this.setContentPane(fondo);
+
         initComponents();
-        this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -34,9 +44,20 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         txtNewProduct = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mnShowOrders = new javax.swing.JMenuItem();
+        mnShowCostumer = new javax.swing.JMenuItem();
+        mnQuit = new javax.swing.JMenu();
+        mnExitSystem = new javax.swing.JMenuItem();
+        mnQuitSesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jMenuBar1.setForeground(new java.awt.Color(255, 153, 0));
+        jMenuBar1.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jMenuBar1ComponentAdded(evt);
+            }
+        });
 
         jMenu1.setText("New");
 
@@ -68,15 +89,43 @@ public class MainMenu extends javax.swing.JFrame {
 
         jMenu2.setText("View");
 
-        jMenuItem3.setText("Show Orders");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mnShowOrders.setText("Show Orders");
+        mnShowOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                mnShowOrdersActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenu2.add(mnShowOrders);
+
+        mnShowCostumer.setText("Show Costumers");
+        mnShowCostumer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnShowCostumerActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnShowCostumer);
 
         jMenuBar1.add(jMenu2);
+
+        mnQuit.setText("Exit");
+
+        mnExitSystem.setText("Log out");
+        mnExitSystem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnExitSystemActionPerformed(evt);
+            }
+        });
+        mnQuit.add(mnExitSystem);
+
+        mnQuitSesion.setText("Quit Program");
+        mnQuitSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnQuitSesionActionPerformed(evt);
+            }
+        });
+        mnQuit.add(mnQuitSesion);
+
+        jMenuBar1.add(mnQuit);
 
         setJMenuBar(jMenuBar1);
 
@@ -95,30 +144,52 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        NewCostumer c= new NewCostumer();
-        
+
+        NewCostumer c = new NewCostumer();
+
         c.setVisible(true);
-        
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        NewOrders c= new NewOrders();
-        
+
+        NewOrders c = new NewOrders();
+
         c.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void txtNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewProductActionPerformed
-                NewProduct p = new NewProduct();
-                p.setVisible(true);
+        NewProduct p = new NewProduct();
+        p.setVisible(true);
     }//GEN-LAST:event_txtNewProductActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-         
-        
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    private void mnShowOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnShowOrdersActionPerformed
+        NewCostumer c = new NewCostumer();
+        c.setVisible(true);
+
+
+    }//GEN-LAST:event_mnShowOrdersActionPerformed
+
+    private void mnShowCostumerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnShowCostumerActionPerformed
+        ShowCostumer s = new ShowCostumer();
+        s.setVisible(true);
+    }//GEN-LAST:event_mnShowCostumerActionPerformed
+
+    private void jMenuBar1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jMenuBar1ComponentAdded
+
+
+    }//GEN-LAST:event_jMenuBar1ComponentAdded
+
+    private void mnExitSystemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExitSystemActionPerformed
+
+        LogIn l = new LogIn();
+
+        l.setVisible(true);
+    }//GEN-LAST:event_mnExitSystemActionPerformed
+
+    private void mnQuitSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnQuitSesionActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_mnQuitSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,7 +233,28 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem mnExitSystem;
+    private javax.swing.JMenu mnQuit;
+    private javax.swing.JMenuItem mnQuitSesion;
+    private javax.swing.JMenuItem mnShowCostumer;
+    private javax.swing.JMenuItem mnShowOrders;
     private javax.swing.JMenuItem txtNewProduct;
     // End of variables declaration//GEN-END:variables
+
+    class FondoPanel extends JPanel {
+
+        private Image imagen;
+    
+
+    @Override
+    public void paint(Graphics g) {
+         imagen = new ImageIcon(getClass().getResource("/Icons/uno.jpg")).getImage();
+
+        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+
+        super.paint(g);
+
+    }
+    }
 }

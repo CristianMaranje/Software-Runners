@@ -38,6 +38,18 @@ public class StudentTest {
     }
 
     /**
+     * Test of addNewCostumer method, of class Student.
+     */
+    @Test
+    public void testAddNewCostumer() {
+        System.out.println("addNewCostumer");
+        Student instance = new Student();
+        instance.addNewCostumer();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
      * Test of toString method, of class Student.
      */
     @Test

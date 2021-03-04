@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
-import java.awt.Graphics;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author Ariel Nicolás Hidrobo Fernández
  */
-public class MainMenuTest {
+public class AddProductTest {
     
-    public MainMenuTest() {
+    public AddProductTest() {
     }
     
     @BeforeClass
@@ -39,26 +38,13 @@ public class MainMenuTest {
     }
 
     /**
-     * Test of main method, of class MainMenu.
+     * Test of main method, of class AddProduct.
      */
     @Test
     public void testMain() {
         System.out.println("main");
         String[] args = null;
-        MainMenu.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of paint method, of class MainMenu.
-     */
-    @Test
-    public void testPaint() {
-        System.out.println("paint");
-        Graphics g = null;
-        MainMenu instance = new MainMenu();
-        instance.paint(g);
+        AddProduct.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

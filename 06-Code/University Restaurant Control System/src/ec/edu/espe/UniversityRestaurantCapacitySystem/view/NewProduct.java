@@ -143,7 +143,7 @@ public class NewProduct extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addComponent(btmSave))
                     .addComponent(jLabel4))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();

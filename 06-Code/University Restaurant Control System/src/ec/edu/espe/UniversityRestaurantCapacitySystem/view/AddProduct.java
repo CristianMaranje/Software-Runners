@@ -24,26 +24,29 @@ public class AddProduct extends javax.swing.JFrame {
      * Creates new form ShowProducts
      */
     public AddProduct() {
+        
         initComponents();
-//        DefaultTableModel modelo = new DefaultTableModel();
-//        
-//        
-//        
-//        DBCollection collection1 = DBManager.initializeMongo("Products");
-//        DBCursor cursor = collection1.find();
-//        
-//        String[] data= new String[30];
-//        
-//        while (cursor.hasNext()) {
-//            for ( int i=0 ; i < data.length ; i++) {
-//                data[i]= cursor.next().toString();
-//                modelo.addRow(data);
-//                
-//            }
-//        }
-//        
-//        tblProducts.setModel(modelo);
-//        modelo.addColumn("Data");
+         
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+        
+        
+        DBCollection collection1 = DBManager.initializeMongo("Products");
+        DBCursor cursor = collection1.find();
+        
+        String[] data= new String[30];
+        
+        while (cursor.hasNext()) {
+            for ( int i=0 ; i < data.length ; i++) {
+                data[i]= cursor.next().toString();
+                modelo.addRow(data);
+                
+            }
+        }
+        
+       tblProducts.setModel(modelo);
+       modelo.addColumn("Data");
         
         
     }
@@ -64,7 +67,8 @@ public class AddProduct extends javax.swing.JFrame {
         btmAddProduct = new javax.swing.JButton();
         btmSave = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblProducts = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,7 +108,7 @@ public class AddProduct extends javax.swing.JFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -112,47 +116,56 @@ public class AddProduct extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "ID", "Price", "Quantity"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(tblProducts);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("PRODUCTS LIST ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btmAddProduct)
+                .addGap(35, 35, 35)
+                .addComponent(btmSave, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(166, 166, 166))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
+                        .addGap(41, 41, 41)
                         .addComponent(jLabel1)
-                        .addGap(45, 45, 45)
-                        .addComponent(txtProductID, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtProductID, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(btmSave))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(btmAddProduct))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtProductID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(btmAddProduct)
-                .addGap(33, 33, 33)
-                .addComponent(btmSave)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btmAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btmSave, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -166,7 +179,8 @@ public class AddProduct extends javax.swing.JFrame {
 
         BasicDBList products = new BasicDBList();
     private void btmAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmAddProductActionPerformed
-        Product product = new Product();
+       
+            Product product = new Product();
         BasicDBObject foundProduct = new BasicDBObject();
         int id = 0;
         
@@ -186,14 +200,12 @@ public class AddProduct extends javax.swing.JFrame {
                 }
                 
             } while (foundProduct.isEmpty());
-
-            
     }//GEN-LAST:event_btmAddProductActionPerformed
 
     private void btmSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmSaveActionPerformed
         BasicDBObject order = new BasicDBObject();
         
-        order.append("Product", products).append("costumer", DBManager.findCostumer(txtIDCostumer.getText(), "Costumers"));
+//        order.append("Product", products).append("costumer", DBManager.findCostumer(txtIDCostumer.getText(), "Costumers"));
 //DBManager.save(products, "Orders");
     }//GEN-LAST:event_btmSaveActionPerformed
 
@@ -239,10 +251,11 @@ public class AddProduct extends javax.swing.JFrame {
     private javax.swing.JButton btmAddProduct;
     private javax.swing.JButton btmSave;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tblProducts;
     private javax.swing.JTextField txtProductID;
     // End of variables declaration//GEN-END:variables
 }
