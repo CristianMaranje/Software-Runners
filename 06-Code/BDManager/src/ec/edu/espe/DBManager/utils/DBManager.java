@@ -1,4 +1,4 @@
-package ec.edu.espe.FileManagerDB.utils;
+package ec.edu.espe.DBManager.utils;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -7,12 +7,22 @@ import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 
-public class FileManagerDB {
+public class DBManager {
 
     public static void save(BasicDBObject obj, String collectionName) {
 
         DBCollection collection1 = initializeMongo(collectionName);
         collection1.insert(obj);
+    }
+
+    public static void findCostumer(String collectionName) {
+        BasicDBObject whereQuery = new BasicDBObject();
+        DBCollection collection = initializeMongo(collectionName);
+        whereQuery.put("employeeId", 5);
+        DBCursor cursor = collection.find(whereQuery);
+        while (cursor.hasNext()) {
+            System.out.println(cursor.next());
+        }
     }
 
     /*public static void showOrders(String CollectionName) {

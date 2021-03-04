@@ -1,11 +1,7 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import com.google.gson.Gson;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBCollection;
-//import static com.sun.glass.ui.Cursor.setVisible;
-import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
-import static ec.edu.espe.FileManagerDB.utils.FileManagerDB.initializeMongo;
+import ec.edu.espe.DBManager.utils.DBManager;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.Controller;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Administrator;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Costumer;
@@ -68,7 +64,8 @@ public class UniversityRestaurantCapacityControlSystem {
                     System.out.println("2.Employee");
                     type = scan.nextInt();
                     if (type == 1) {
-                        FileManager.save("costumersList.json", gson.toJson(student.addNewCostumer()));
+                        student.addNewCostumer();
+                        //FileManager.save("costumersList.json", gson.toJson(student.addNewCostumer()));
                         System.out.println("**NEW STUDENT COSTUMER ADDED***\n");
                     } else {
                         FileManager.save("costumersList.json", gson.toJson(employee.addNewCostumer()));
@@ -76,13 +73,13 @@ public class UniversityRestaurantCapacityControlSystem {
                     }
                     break;
                 case 5:
-                    FileManagerDB.findProduct((display.productToFind()), "Products");
+                    DBManager.findProduct((display.productToFind()), "Products");
 
                     //foundLines = FileManager.find("productsList.json", display.productToFind());
                     //System.out.println(foundLines);
                     break;
                 case 6:
-                    FileManagerDB.showProducts("Products");
+                    DBManager.showProducts("Products");
                     foundLines = FileManager.findAll("productsList.json");
                     System.out.println(foundLines);
                     break;

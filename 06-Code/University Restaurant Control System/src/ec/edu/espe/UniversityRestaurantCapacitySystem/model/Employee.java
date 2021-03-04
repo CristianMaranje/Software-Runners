@@ -42,7 +42,7 @@ public class Employee extends Costumer{
         
         BasicDBObject docCostumer =new BasicDBObject();
         docCostumer.append("name", name).append("mail", mail).append("id", costumerID).append("disscount", disscount);
-        FileManagerDB.save(docCostumer, "Costumers");
+        FileManagerDB.save(docCostumer, "CostumersEpmloyee");
         
         return employee;
     }

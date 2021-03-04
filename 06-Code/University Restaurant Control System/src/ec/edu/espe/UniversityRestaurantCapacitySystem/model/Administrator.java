@@ -3,11 +3,7 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 import com.google.gson.Gson;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
+import ec.edu.espe.DBManager.utils.DBManager;
 import ec.edu.espe.filemanager.utils.FileManager;
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,9 +35,9 @@ public class Administrator {
         Gson gson = new Gson();
         Order order = new Order();
         Scanner scan = new Scanner(System.in);
-        Student student = new Student();
+        //Student student = new Student();
          
-     
+        //busca la ordenes en json
         List<String> allOrders = FileManager.findAll("ordersList.json");
 
         int newOrderID = 1;
@@ -50,23 +46,36 @@ public class Administrator {
             orders.add(gson.fromJson(foundOrder, Order.class));
             newOrderID = ++newOrderID;
         }
-
+        //busca las ordenes en DB
+        
+        
         //search for existing costumers and creates a new one
-        List<String> allCostumers = FileManager.findAll("costumersList.json");
-        List<String> foundCostumer;
+//        List<String> allCostumers = FileManager.findAll("costumersList.json");
+//        List<String> foundCostumer;
+//        do {
+//            System.out.print("COSTUMER ID: ");
+//            String costumerID = scan.nextLine();
+//            foundCostumer = FileManager.find("costumersList.json", costumerID);
+//            if (foundCostumer == null) {
+//                FileManager.save("costumersList.json", gson.toJson(student.addNewCostumer()));
+//            }
+//        } while (foundCostumer == null);
+//        display.displayOfCostumer(foundCostumer);
+//        for (String string : foundCostumer) {
+//            student = gson.fromJson(string, Student.class);
+//        }
+
+        //search for existing costrumer in DB
         do {
             System.out.print("COSTUMER ID: ");
+            docCostumer = 
             String costumerID = scan.nextLine();
             foundCostumer = FileManager.find("costumersList.json", costumerID);
             if (foundCostumer == null) {
                 FileManager.save("costumersList.json", gson.toJson(student.addNewCostumer()));
             }
         } while (foundCostumer == null);
-        display.displayOfCostumer(foundCostumer);
-        for (String string : foundCostumer) {
-            student = gson.fromJson(string, Student.class);
-        }
-
+        
         //gets the products from the mongodb Atlas 
         Product[] productToInsert = order.addNewProduct();
 
@@ -82,16 +91,18 @@ public class Administrator {
                     .append("Cuantity", productToInsert[i].getQuantity()));
         }
 
-        docCostumer.append("name", student.getName())
-                .append("mail", student.getMail())
-                .append("id", student.getId());
+//        docCostumer.append("name", student.getName())
+//                .append("mail", student.getMail())
+//                .append("id", student.getId());
+
+        
 
         doc.append("orderID", toInsertInOrder.getOrderId())
                 .append("Product", docProduct)
                 .append("costumer", docCostumer)
                 .append("date", toInsertInOrder.getDate());
         
-        FileManagerDB.save(doc, ("Orders"));
+        DBManager.save(doc, ("Orders"));
         FileManager.save("ordersList.json", gson.toJson(toInsertInOrder, Order.class));
         display.displayReceipt(gson.toJson(toInsertInOrder, Order.class));
     }
