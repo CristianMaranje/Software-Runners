@@ -22,27 +22,10 @@ public abstract class Costumer {
         id = "9999999999";
     }
     
+    
+    
     public abstract void addNewCostumer(); 
-    
-//   {     Scanner scan = new Scanner(System.in);
-//        System.out.print("ENTER COSTUMER NAME:");
-//        String name = scan.nextLine();
-//        System.out.print("ENTER COSTUMER MAIL:");
-//        String mail = scan.nextLine();
-//        System.out.print("ENTER COSTUMER ID: ");
-//        String costumerID = scan.nextLine();
-//        System.out.println("");
-//        Costumer costumer = new Costumer(name, mail, costumerID);
-//        
-//        BasicDBObject docCostumer =new BasicDBObject();
-//        docCostumer.append("name", name).append("mail", mail).append("id", id);
-//        FileManagerDB.save(docCostumer, "Costumers");
-//        
-//        return costumer;
-//    }
-//     
-    
-    
+        
     @Override
     public String toString() {
         return "Costumer{" + "name=" + name + ", mail=" + mail + ", id=" + id + '}';

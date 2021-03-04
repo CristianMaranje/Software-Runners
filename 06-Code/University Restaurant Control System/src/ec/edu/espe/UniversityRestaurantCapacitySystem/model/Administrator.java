@@ -4,12 +4,9 @@ import com.google.gson.Gson;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import ec.edu.espe.DBManager.utils.DBManager;
-import ec.edu.espe.filemanager.utils.FileManager;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.view.Display;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -24,82 +21,39 @@ public class Administrator {
     private String name;
     private ArrayList<Order> cashierOrders;
 
-    public void registerNewOrder(List<Order> orders) {
-       //conects to the mongoDB Atlas
-       
+    public void registerNewOrder() {
+        Order order = new Order();
         BasicDBObject doc = new BasicDBObject();
-        BasicDBList docProduct = new BasicDBList();
         BasicDBObject docCostumer = new BasicDBObject();
 
-        Display display = new Display();
-        Gson gson = new Gson();
-        Order order = new Order();
         Scanner scan = new Scanner(System.in);
         Student student = new Student();
-         
-        //busca la ordenes en json
-//        List<String> allOrders = FileManager.findAll("ordersList.json");
-//
-//        int newOrderID = 1;
-//
-//        for (String foundOrder : allOrders) {
-//            orders.add(gson.fromJson(foundOrder, Order.class));
-//            newOrderID = ++newOrderID;
-//        }
-        //busca las ordenes en DB
-        
-        
-        //search for existing costumers and creates a new one
-//        List<String> allCostumers = FileManager.findAll("costumersList.json");
-//        List<String> foundCostumer;
-//        do {
-//            System.out.print("COSTUMER ID: ");
-//            String costumerID = scan.nextLine();
-//            foundCostumer = FileManager.find("costumersList.json", costumerID);
-//            if (foundCostumer == null) {
-//                FileManager.save("costumersList.json", gson.toJson(student.addNewCostumer()));
-//            }
-//        } while (foundCostumer == null);
-//        display.displayOfCostumer(foundCostumer);
-//        for (String string : foundCostumer) {
-//            student = gson.fromJson(string, Student.class);
-//        }
 
         //search for existing costrumer in DB
+        String costumerID = null;
         do {
             System.out.print("COSTUMER ID: ");
-            String costumerID = scan.nextLine();
+            costumerID = scan.nextLine();
             docCostumer = DBManager.findCostumer(costumerID, "Costumers");
             if (docCostumer.isEmpty()) {
+                System.out.println("COSTUMER NOT FOUND");
                 student.addNewCostumer();
+                docCostumer = DBManager.findCostumer(costumerID, "Costumers");
             }
-        } while (docCostumer == null);
-        
+
+        } while (docCostumer.isEmpty());
+
         //gets the products from the mongodb Atlas 
-        Product[] productToInsert = order.addNewProduct();
+        BasicDBList products = order.addNewProduct();
 
-        //creates the order
+        //creates the order document
         Date todayDate = new Date();
-//        Order toInsertInOrder = new Order(newOrderID, productToInsert, student, todayDate);
-
-        for (int i = 0; i < productToInsert.length; i++) {
-            docProduct.add(new BasicDBObject("name", productToInsert[i].getName())
-                    .append("productId", productToInsert[i].getProductId())
-                    .append("price", productToInsert[i].getPrice())
-                    .append("Description", productToInsert[i].getDescription())
-                    .append("Cuantity", productToInsert[i].getQuantity()));
-        }
-
-      
-        
-
-        doc.append("Product", docProduct)
+        doc.append("Product", products)
                 .append("costumer", docCostumer)
                 .append("date", todayDate);
-        
+
+        //saves the order
         DBManager.save(doc, ("Orders"));
-//        FileManager.save("ordersList.json", gson.toJson(toInsertInOrder, Order.class));
-//        display.displayReceipt(gson.toJson(toInsertInOrder, Order.class));
     }
 
     public boolean validate(String username, String pass) {

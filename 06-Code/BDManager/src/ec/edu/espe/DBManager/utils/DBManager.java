@@ -28,7 +28,7 @@ public class DBManager {
         return foundCostumer;
     }
 
-    /*public static void showOrders(String CollectionName) {
+    public static void showOrders(String CollectionName) {
         DBCollection collection1 = initializeMongo(CollectionName);
 
             DBCursor cursor = collection1.find();
@@ -60,7 +60,7 @@ public class DBManager {
             System.out.println(cursor.next());
             System.out.println("===============================================");
         }
-    }*/
+    }
     public static void showProducts(String CollectionName) {
         DBCollection collection1 = initializeMongo(CollectionName);
 
@@ -72,17 +72,19 @@ public class DBManager {
         }
     }
 
-    public static void findProduct(int id, String CollectionName) {
+    public static BasicDBObject findProduct(int id, String CollectionName) {
 
         DBCollection collection1 = initializeMongo(CollectionName);
 
         BasicDBObject findProduct = new BasicDBObject();
         findProduct.put("productId", id);
+        BasicDBObject foundProduct = new BasicDBObject();
         DBCursor cursor = collection1.find(findProduct);
         while (cursor.hasNext()) {
-            System.out.println("Product found---> Name: " + cursor.next().get("name") + " - Product ID:  " + cursor.curr().get("productId") + " - Price:  " + cursor.curr().get("price") + " - Description: " + cursor.curr().get("description") + " - Quantity: " + cursor.curr().get("quantity"));
+            foundProduct.append("name", cursor.next().get("name")).append("productId", cursor.curr().get("productId")).append("price", cursor.curr().get("price")).append("description", cursor.curr().get("description")).append("quantity", cursor.curr().get("quantity"));
+            System.out.println("****"+foundProduct);
         }
-
+        return foundProduct;
     }
 
     public static void updateProducts(int ID, String CollectionName) {

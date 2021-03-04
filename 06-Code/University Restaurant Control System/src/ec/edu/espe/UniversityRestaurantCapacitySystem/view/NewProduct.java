@@ -167,7 +167,7 @@ public class NewProduct extends javax.swing.JFrame {
                     .append("quantity",Integer.parseInt(spnQuantity.getValue().toString()));
             DBManager.save(docProduct,"Products");
 
-            JOptionPane.showMessageDialog(this, "COSTUMER SAVED");
+            JOptionPane.showMessageDialog(this, "PRODUCT SAVED");
     }//GEN-LAST:event_btmSaveActionPerformed
 
     /**

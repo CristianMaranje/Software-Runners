@@ -34,7 +34,6 @@ public class UniversityRestaurantCapacityControlSystem {
         // Costumer costumer = new Costumer();
         Costumer student = new Student();
         Costumer employee= new Employee();
-        List<Order> orders = new ArrayList<Order>();
         Gson gson = new Gson();
         Administrator cashier = new Administrator();
         Controller controller = new Controller();
@@ -44,10 +43,10 @@ public class UniversityRestaurantCapacityControlSystem {
             option = display.displayMenu();
             switch (option) {
                 case 1:
-                    cashier.registerNewOrder(orders);
+                    cashier.registerNewOrder();
                     break;
                 case 2:
-                    //FileManagerDB.showOrders("Orders");
+                    
                     controller.printAllOrders();
 
                     break;

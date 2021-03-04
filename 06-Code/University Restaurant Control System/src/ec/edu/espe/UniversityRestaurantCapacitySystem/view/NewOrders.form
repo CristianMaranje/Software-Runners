@@ -26,21 +26,20 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="txtIDProductForOrder" min="-2" pref="159" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
                       <Component id="lblNewOrder" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
-                      <Component id="btnSaveOrder" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnVerificateCostumer" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtIDCostumer" min="-2" pref="159" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="199" max="32767" attributes="0"/>
+              <EmptySpace pref="189" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,11 +51,11 @@
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtIDProductForOrder" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtIDCostumer" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="179" max="32767" attributes="0"/>
-              <Component id="btnSaveOrder" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace pref="124" max="32767" attributes="0"/>
+              <Component id="btnVerificateCostumer" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,20 +63,20 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ID Product "/>
+        <Property name="text" type="java.lang.String" value="ID Costumer "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtIDProductForOrder">
+    <Component class="javax.swing.JTextField" name="txtIDCostumer">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIDProductForOrderActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIDCostumerActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnSaveOrder">
+    <Component class="javax.swing.JButton" name="btnVerificateCostumer">
       <Properties>
-        <Property name="text" type="java.lang.String" value="SAVE"/>
+        <Property name="text" type="java.lang.String" value="VERIFICATE COSTUMER"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveOrderActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerificateCostumerActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNewOrder">
