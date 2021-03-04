@@ -8,7 +8,7 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import com.google.gson.Gson;
 import com.mongodb.BasicDBObject;
-import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
+import ec.edu.espe.DBManager.utils.DBManager;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import ec.edu.espe.filemanager.utils.FileManager;
 import javax.swing.JOptionPane;
@@ -165,7 +165,7 @@ public class NewProduct extends javax.swing.JFrame {
                     .append("price",Float.parseFloat(txtPriceProduct.getText()))
                     .append("description",areDescription.getText()) 
                     .append("quantity",Integer.parseInt(spnQuantity.getValue().toString()));
-            FileManagerDB.save(docProduct,"Products");
+            DBManager.save(docProduct,"Products");
 
             JOptionPane.showMessageDialog(this, "COSTUMER SAVED");
     }//GEN-LAST:event_btmSaveActionPerformed

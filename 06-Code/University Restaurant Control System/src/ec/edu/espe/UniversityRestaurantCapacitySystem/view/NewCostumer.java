@@ -5,13 +5,10 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
-import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Costumer;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Student;
-import ec.edu.espe.filemanager.utils.FileManager;
 import javax.swing.JOptionPane;
 import com.google.gson.Gson;
 import com.mongodb.BasicDBObject;
-import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
+import ec.edu.espe.DBManager.utils.DBManager;
 /**
  *
  * @author Ariel Nicolás Hidrobo Fernández
@@ -137,7 +134,7 @@ public class NewCostumer extends javax.swing.JFrame {
         //FileManager.save("costumersList.json", gson.toJson(costumer));
         BasicDBObject docCostumer =new BasicDBObject();
         docCostumer.append("name", txtCostumerName.getText()).append("mail", txtCostumerMail.getText()).append("id", txtCostumerID.getText());
-        FileManagerDB.save(docCostumer, "Costumers");
+        DBManager.save(docCostumer, "Costumers");
         JOptionPane.showMessageDialog(this, "COSTUMER SAVED");
         
     }//GEN-LAST:event_jButton1ActionPerformed

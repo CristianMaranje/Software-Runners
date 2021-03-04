@@ -6,8 +6,7 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
 import com.mongodb.BasicDBObject;
-import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
+import ec.edu.espe.DBManager.utils.DBManager;
 import java.util.Scanner;
 
 /**
@@ -27,7 +26,7 @@ public class Employee extends Costumer{
     
 
     @Override
-   public Costumer addNewCostumer() {
+   public void addNewCostumer() {
         Scanner scan = new Scanner(System.in);
         System.out.print("ENTER COSTUMER NAME:");
         String name = scan.nextLine();
@@ -38,13 +37,10 @@ public class Employee extends Costumer{
         System.out.println("");
         float disscount = 0.2f;
         
-        Employee employee = new Employee (name, mail, costumerID, disscount );
-        
         BasicDBObject docCostumer =new BasicDBObject();
         docCostumer.append("name", name).append("mail", mail).append("id", costumerID).append("disscount", disscount);
-        FileManagerDB.save(docCostumer, "CostumersEpmloyee");
+        DBManager.save(docCostumer, "Costumers");
         
-        return employee;
     }
 
     @Override

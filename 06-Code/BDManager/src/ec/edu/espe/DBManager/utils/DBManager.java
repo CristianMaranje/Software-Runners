@@ -4,6 +4,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 
@@ -15,14 +16,16 @@ public class DBManager {
         collection1.insert(obj);
     }
 
-    public static void findCostumer(String collectionName) {
-        BasicDBObject whereQuery = new BasicDBObject();
+    public static BasicDBObject findCostumer(String id, String collectionName) {
+        BasicDBObject foundCostumer = new BasicDBObject();
         DBCollection collection = initializeMongo(collectionName);
-        whereQuery.put("employeeId", 5);
+        BasicDBObject whereQuery = new BasicDBObject();
+        whereQuery.put("id", id);
         DBCursor cursor = collection.find(whereQuery);
         while (cursor.hasNext()) {
-            System.out.println(cursor.next());
+            foundCostumer.append("name", cursor.next().get("name")).append("id", cursor.curr().get("id")).append("disscount", cursor.curr().get("disscount"));
         }
+        return foundCostumer;
     }
 
     /*public static void showOrders(String CollectionName) {
@@ -58,7 +61,6 @@ public class DBManager {
             System.out.println("===============================================");
         }
     }*/
-
     public static void showProducts(String CollectionName) {
         DBCollection collection1 = initializeMongo(CollectionName);
 

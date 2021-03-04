@@ -1,10 +1,5 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
-import com.google.gson.Gson;
-import com.mongodb.BasicDBObject;
-import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
-import java.util.Scanner;
-
 /**
  *
  * @author Juan Gallardo Software-Runners ESPE-DCCO
@@ -27,7 +22,7 @@ public abstract class Costumer {
         id = "9999999999";
     }
     
-    public abstract Costumer addNewCostumer(); 
+    public abstract void addNewCostumer(); 
     
 //   {     Scanner scan = new Scanner(System.in);
 //        System.out.print("ENTER COSTUMER NAME:");

@@ -1,6 +1,8 @@
 
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
+import com.mongodb.BasicDBObject;
+import ec.edu.espe.DBManager.utils.DBManager;
 import java.util.Scanner;
 
 /**
@@ -36,12 +38,12 @@ public class Product {
     }
     
     
-    public Product addNewProduct() {
+    public void addNewProduct() {
         
         Scanner scan = new Scanner(System.in);
         System.out.print("ENTER THE PRODUCT NAME:");
         String name = scan.nextLine();
-        System.out.println("ENTER THE PRODUCT ID:");
+        System.out.print("ENTER THE PRODUCT ID:");
         int productID = scan.nextInt();
         scan.nextLine();
         System.out.print("ENTER THE PRODUCT PRICE: ");
@@ -51,10 +53,12 @@ public class Product {
         String description = scan.nextLine();
         System.out.print("ENTER THE CUANTITY: ");
         int quantity = scan.nextInt();
-
-        Product product = new Product(name, productID, price, description, quantity);
-
-        return product;
+        scan.nextLine();
+        
+        BasicDBObject docCostumer =new BasicDBObject();
+        docCostumer.append("name", name).append("productId", productID).append("price", price).append("description", description).append("quantity", quantity);
+        DBManager.save(docCostumer, "Products");
+        
     }
     
     

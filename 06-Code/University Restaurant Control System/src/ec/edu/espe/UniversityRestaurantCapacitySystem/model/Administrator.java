@@ -35,17 +35,17 @@ public class Administrator {
         Gson gson = new Gson();
         Order order = new Order();
         Scanner scan = new Scanner(System.in);
-        //Student student = new Student();
+        Student student = new Student();
          
         //busca la ordenes en json
-        List<String> allOrders = FileManager.findAll("ordersList.json");
-
-        int newOrderID = 1;
-
-        for (String foundOrder : allOrders) {
-            orders.add(gson.fromJson(foundOrder, Order.class));
-            newOrderID = ++newOrderID;
-        }
+//        List<String> allOrders = FileManager.findAll("ordersList.json");
+//
+//        int newOrderID = 1;
+//
+//        for (String foundOrder : allOrders) {
+//            orders.add(gson.fromJson(foundOrder, Order.class));
+//            newOrderID = ++newOrderID;
+//        }
         //busca las ordenes en DB
         
         
@@ -68,20 +68,19 @@ public class Administrator {
         //search for existing costrumer in DB
         do {
             System.out.print("COSTUMER ID: ");
-            docCostumer = 
             String costumerID = scan.nextLine();
-            foundCostumer = FileManager.find("costumersList.json", costumerID);
-            if (foundCostumer == null) {
-                FileManager.save("costumersList.json", gson.toJson(student.addNewCostumer()));
+            docCostumer = DBManager.findCostumer(costumerID, "Costumers");
+            if (docCostumer.isEmpty()) {
+                student.addNewCostumer();
             }
-        } while (foundCostumer == null);
+        } while (docCostumer == null);
         
         //gets the products from the mongodb Atlas 
         Product[] productToInsert = order.addNewProduct();
 
         //creates the order
         Date todayDate = new Date();
-        Order toInsertInOrder = new Order(newOrderID, productToInsert, student, todayDate);
+//        Order toInsertInOrder = new Order(newOrderID, productToInsert, student, todayDate);
 
         for (int i = 0; i < productToInsert.length; i++) {
             docProduct.add(new BasicDBObject("name", productToInsert[i].getName())
@@ -91,20 +90,16 @@ public class Administrator {
                     .append("Cuantity", productToInsert[i].getQuantity()));
         }
 
-//        docCostumer.append("name", student.getName())
-//                .append("mail", student.getMail())
-//                .append("id", student.getId());
-
+      
         
 
-        doc.append("orderID", toInsertInOrder.getOrderId())
-                .append("Product", docProduct)
+        doc.append("Product", docProduct)
                 .append("costumer", docCostumer)
-                .append("date", toInsertInOrder.getDate());
+                .append("date", todayDate);
         
         DBManager.save(doc, ("Orders"));
-        FileManager.save("ordersList.json", gson.toJson(toInsertInOrder, Order.class));
-        display.displayReceipt(gson.toJson(toInsertInOrder, Order.class));
+//        FileManager.save("ordersList.json", gson.toJson(toInsertInOrder, Order.class));
+//        display.displayReceipt(gson.toJson(toInsertInOrder, Order.class));
     }
 
     public boolean validate(String username, String pass) {

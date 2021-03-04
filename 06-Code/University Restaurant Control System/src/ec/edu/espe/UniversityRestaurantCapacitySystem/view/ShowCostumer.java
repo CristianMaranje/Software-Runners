@@ -7,8 +7,7 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
-import ec.edu.espe.FileManagerDB.utils.FileManagerDB;
-import static ec.edu.espe.FileManagerDB.utils.FileManagerDB.initializeMongo;
+import ec.edu.espe.DBManager.utils.DBManager;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -28,33 +27,32 @@ public class ShowCostumer extends javax.swing.JFrame {
         modelo.addColumn("Data");
         
         
-        DBCollection collection1 = FileManagerDB.initializeMongo("Costumers");
-        
+        DBCollection collection1 = DBManager.initializeMongo("Costumers");
         DBCursor cursor = collection1.find();
         
         String[] data= new String[10];
         
         
         
-        while (cursor.hasNext()) {
-            int i =0;
-            while(i<data.length){
-                
-            }
-                data[i]= cursor.next().toString();
-                modelo.addRow(data);
-                i++;
-            }
+//        while (cursor.hasNext()) {
+//            int i =0;
+//            while(i<data.length){
+//                
+//            }
+//                data[i]= cursor.next().toString();
+//                modelo.addRow(data);
+//                i++;
+//            }
             
         
         
-        /*while (cursor.hasNext()) {
+        while (cursor.hasNext()) {
             for ( int i=0 ; i < data.length ; i++) {
                 data[i]= cursor.next().toString();
                 modelo.addRow(data);
                 
             }
-        }*/
+        }
     }
 
     /**

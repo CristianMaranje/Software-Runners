@@ -14,20 +14,18 @@ import java.util.Scanner;
  */
 public class Order {
 
-    private int orderId;
+    
     private Product product[];
     private Costumer costumer;
     private Date date;
 
-    public Order(int orderId, Product[] product, Costumer costumer, Date date) {
-        this.orderId = orderId;
+    public Order(Product[] product, Costumer costumer, Date date) {
         this.product = product;
         this.costumer = costumer;
         this.date = date;
     }
 
     public Order(){
-        orderId = 0;
         product = null;
         costumer = null;
         date = null;
@@ -35,7 +33,7 @@ public class Order {
     
     @Override
     public String toString() {
-        return "Order{" + "orderId=" + orderId + ", product=" + product + ", costumer=" + costumer + ", date=" + date + '}';
+        return "Order{" + ", product=" + product + ", costumer=" + costumer + ", date=" + date + '}';
     }
 
     public Product[] addNewProduct(){
@@ -99,14 +97,6 @@ public class Order {
 
     public void setCostumer(Costumer costumer) {
         this.costumer = costumer;
-    }
-
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
     }
 
     public Product[] getProduct() {

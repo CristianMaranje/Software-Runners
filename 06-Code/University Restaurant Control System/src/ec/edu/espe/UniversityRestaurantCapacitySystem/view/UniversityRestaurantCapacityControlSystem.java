@@ -52,7 +52,8 @@ public class UniversityRestaurantCapacityControlSystem {
 
                     break;
                 case 3:
-                    FileManager.save("productsList.json", gson.toJson(product.addNewProduct()));
+                    product.addNewProduct();
+                    //FileManager.save("productsList.json", gson.toJson(product.addNewProduct()));
                     
 
         
@@ -68,7 +69,8 @@ public class UniversityRestaurantCapacityControlSystem {
                         //FileManager.save("costumersList.json", gson.toJson(student.addNewCostumer()));
                         System.out.println("**NEW STUDENT COSTUMER ADDED***\n");
                     } else {
-                        FileManager.save("costumersList.json", gson.toJson(employee.addNewCostumer()));
+                        employee.addNewCostumer();
+                        //FileManager.save("costumersList.json", gson.toJson(employee.addNewCostumer()));
                         System.out.println("**NEW EMPLOYEE COSTUMER ADDED***\n");
                     }
                     break;
