@@ -31,11 +31,13 @@ public class AddProduct extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         
         
-        
+       tblProducts.setModel(modelo);
+       modelo.addColumn("Data");
+       
         DBCollection collection1 = DBManager.initializeMongo("Products");
         DBCursor cursor = collection1.find();
         
-        String[] data= new String[30];
+        String[] data= new String[15];
         
         while (cursor.hasNext()) {
             for ( int i=0 ; i < data.length ; i++) {
@@ -45,8 +47,8 @@ public class AddProduct extends javax.swing.JFrame {
             }
         }
         
-       tblProducts.setModel(modelo);
-       modelo.addColumn("Data");
+//       tblProducts.setModel(modelo);
+//       modelo.addColumn("Data");
         
         
     }
@@ -241,6 +243,7 @@ public class AddProduct extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
+                new AddProduct().setVisible(true);
                 
               
             }

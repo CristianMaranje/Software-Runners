@@ -38,7 +38,7 @@ public class LogIn extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         lblLogIn = new javax.swing.JLabel();
-        pfPassword = new javax.swing.JPasswordField();
+        pfPassword = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +71,12 @@ public class LogIn extends javax.swing.JFrame {
         lblLogIn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblLogIn.setText("Log In");
 
+        pfPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pfPasswordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,9 +97,9 @@ public class LogIn extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                            .addComponent(pfPassword))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(97, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -131,9 +137,10 @@ public class LogIn extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Administrator a = new Administrator();
-        if(a.validate(txtUsername.getText(), pfPassword.getText())){
+        if(a.validate(txtUsername.getText(),pfPassword.getText())){
             MainMenu m = new MainMenu();
-            m.setVisible(true);
+            
+                   m.setVisible(true);
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(this, "Usuario o ID incorrectos");
@@ -145,6 +152,10 @@ public class LogIn extends javax.swing.JFrame {
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
+
+    private void pfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pfPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,7 +202,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblLogIn;
-    private javax.swing.JPasswordField pfPassword;
+    private javax.swing.JTextField pfPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
