@@ -74,7 +74,8 @@ public class Administrator {
                     if (data[i].equals("{\"name\":\"" + username + "\"")) {
                         lineretrived.add(line);
                         costumer = gson.fromJson(lineretrived.get(i).toString(), Costumer.class);
-                        if (costumer.getName().equals(username) && costumer.getId().equals(pass)) {
+                        if (!costumer.getName().equals(username) || !costumer.getId().equals(pass)) {
+                        } else {
                             verified = true;
                         }
                     }

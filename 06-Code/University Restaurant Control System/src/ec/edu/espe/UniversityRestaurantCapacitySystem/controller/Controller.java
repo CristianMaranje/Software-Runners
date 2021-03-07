@@ -6,7 +6,7 @@ import ec.edu.espe.DBManager.utils.DBManager;
 
 /**
  *
- * @authors GROUP 3 Software-Runners ESPE-DCCO
+ * @author GROUP 3 Software-Runners ESPE-DCCO
  */
 public class Controller {
 
