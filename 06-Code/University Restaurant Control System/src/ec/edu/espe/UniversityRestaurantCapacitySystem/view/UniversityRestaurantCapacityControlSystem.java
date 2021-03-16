@@ -7,7 +7,6 @@ import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Costumer;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Employee;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Student;
-import ec.edu.espe.filemanager.utils.FileManager;
 import java.util.List;
 import java.util.Scanner;
 
@@ -66,8 +65,8 @@ public class UniversityRestaurantCapacityControlSystem {
                     break;
                 case 6:
                     DBManager.showProducts("Products");
-                    foundLines = FileManager.findAll("productsList.json");
-                    System.out.println(foundLines);
+                    //foundLines = FileManager.findAll("productsList.json");
+                    //System.out.println(foundLines);
                     break;
                 case 7:
                     System.out.println("Exiting ...");

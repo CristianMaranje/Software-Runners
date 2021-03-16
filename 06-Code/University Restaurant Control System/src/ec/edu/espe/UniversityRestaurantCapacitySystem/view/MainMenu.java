@@ -171,7 +171,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_mnShowOrdersActionPerformed
 
     private void mnShowCostumerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnShowCostumerActionPerformed
-        ShowCostumer s = new ShowCostumer();
+        ShowCostumersTable s = new ShowCostumersTable();
         s.setVisible(true);
     }//GEN-LAST:event_mnShowCostumerActionPerformed
 

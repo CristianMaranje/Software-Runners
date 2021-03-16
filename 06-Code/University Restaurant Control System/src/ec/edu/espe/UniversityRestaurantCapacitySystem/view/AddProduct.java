@@ -206,6 +206,9 @@ public class AddProduct extends javax.swing.JFrame {
 
     private void btmSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmSaveActionPerformed
         BasicDBObject order = new BasicDBObject();
+        
+//        order.append("Product", products).append("costumer", DBManager.findCostumer(txtIDCostumer.getText(), "Costumers"));
+//DBManager.save(products, "Orders");
     }//GEN-LAST:event_btmSaveActionPerformed
 
     /**

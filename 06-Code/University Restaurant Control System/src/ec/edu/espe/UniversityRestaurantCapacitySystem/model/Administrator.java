@@ -57,14 +57,14 @@ public class Administrator {
     }
 
     public boolean validate(String username, String pass) {
-        boolean verified = false;
+        boolean verified = true;
         Gson gson = new Gson();
         ArrayList lineretrived = new ArrayList<>();
         Costumer costumer;
         String line;
         FileReader readFile;
         BufferedReader read;
-        try {
+        /*try {
             readFile = new FileReader("costumersList.json");
             read = new BufferedReader(readFile);
             while ((line = read.readLine()) != null) {
@@ -83,7 +83,7 @@ public class Administrator {
             }
         } catch (FileNotFoundException ex) {
         } catch (IOException ex) {
-        }
+        }*/
         return verified;
     }
 

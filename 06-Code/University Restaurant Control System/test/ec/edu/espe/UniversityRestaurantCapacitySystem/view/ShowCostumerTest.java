@@ -44,7 +44,7 @@ public class ShowCostumerTest {
     public void testMain() {
         System.out.println("main");
         String[] args = null;
-        ShowCostumer.main(args);
+        //ShowCostumer.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

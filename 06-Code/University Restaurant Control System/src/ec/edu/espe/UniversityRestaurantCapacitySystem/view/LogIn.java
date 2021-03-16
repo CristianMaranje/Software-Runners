@@ -139,8 +139,9 @@ public class LogIn extends javax.swing.JFrame {
         Administrator a = new Administrator();
         if(a.validate(txtUsername.getText(),pfPassword.getText())){
             MainMenu m = new MainMenu();
+            m.setLocationRelativeTo(null);
+             m.setVisible(true);
             
-                   m.setVisible(true);
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(this, "Usuario o ID incorrectos");
