@@ -5,6 +5,11 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Xavier Cordova ESPE-DCCO
@@ -17,6 +22,9 @@ public class MainMenu extends javax.swing.JFrame {
      * Creates new form MainMenu
      */
     public MainMenu() {
+
+        
+
         initComponents();
         this.setLocationRelativeTo(null);
 
@@ -158,13 +166,17 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+
         NewCostumer c = new NewCostumer();
+
         c.setVisible(true);
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+
         NewOrders c = new NewOrders();
+
         c.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -184,7 +196,9 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuBar1ComponentAdded
 
     private void mnExitSystemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExitSystemActionPerformed
+
         LogIn l = new LogIn();
+
         l.setVisible(true);
     }//GEN-LAST:event_mnExitSystemActionPerformed
 

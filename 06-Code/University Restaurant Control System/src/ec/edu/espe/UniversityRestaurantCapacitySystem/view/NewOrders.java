@@ -8,7 +8,7 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import ec.edu.espe.DBManager.utils.DBManager;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.ConnectionController;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.DataController;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -27,7 +27,7 @@ public class NewOrders extends javax.swing.JFrame {
         
         this.setLocationRelativeTo(null);
         String[][] matrix;
-        matrix = ConnectionController.showProducts();
+        matrix = DataController.showProducts();
         tblOrders.setModel(new javax.swing.table.DefaultTableModel(
                 matrix, new String[]{
                     "Nombre", "ID", "Precio", "Descripcion", "Cantidad"

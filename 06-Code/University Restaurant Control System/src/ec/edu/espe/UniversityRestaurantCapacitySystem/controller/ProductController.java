@@ -35,6 +35,7 @@ public class ProductController {
             docCostumer = DBManager.findCostumer(costumerID, "Costumers");
             if (docCostumer.isEmpty()) {
                 System.out.println("COSTUMER NOT FOUND");
+                student.addNewCostumer();
                 docCostumer = DBManager.findCostumer(costumerID, "Costumers");
             }
         } while (docCostumer.isEmpty());
@@ -57,8 +58,7 @@ public class ProductController {
         while (option == 1) {
             option = 0;
             do {
-                System.out.print("SELECT THE ID OF THE PRODUCT YOU WANT TO ADD TO THE ORDER: ");
-                id = scan.nextInt();
+                
                 foundProduct = DBManager.findProduct(id, "Products");
                 if (foundProduct.isEmpty()) {
 
@@ -68,10 +68,7 @@ public class ProductController {
                     products.add(foundProduct);
                 }
             } while (foundProduct.isEmpty());
-            System.out.println("1. ADD PRODUCT TO ORDER");
-            System.out.println("2. FINISH ORDER");
-            option = scan.nextInt();
-            scan.nextLine();
+           
         }
         return products;
     }

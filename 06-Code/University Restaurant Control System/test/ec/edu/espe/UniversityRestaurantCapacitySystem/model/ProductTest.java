@@ -58,7 +58,7 @@ public class ProductTest {
     public void testAddNewProduct() {
         System.out.println("addNewProduct");
         Product instance = new Product();
-        instance.addNewProduct();
+        
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -98,8 +98,8 @@ public class ProductTest {
         System.out.println("getProductId");
         Product instance = new Product();
         int expResult = 0;
-        int result = instance.getProductId();
-        assertEquals(expResult, result);
+        
+        assertEquals(expResult, "");
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -112,7 +112,7 @@ public class ProductTest {
         System.out.println("setProductId");
         int productId = 0;
         Product instance = new Product();
-        instance.setProductId(productId);
+        
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

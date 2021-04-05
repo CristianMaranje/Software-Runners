@@ -5,9 +5,11 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
-import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.ConnectionController;
+import com.mongodb.connection.Connection;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.DataController;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import java.util.ArrayList;
+import javax.swing.table.AbstractTableModel;
 
 /**
  *
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 public class ShowProducts extends javax.swing.JFrame {
 
     ArrayList<Product> products = new ArrayList<Product>();
-    ConnectionController connection = new ConnectionController("Products");
+    DataController connection = new DataController("Products");
 
     /**
      * Creates new form ShowProducts
@@ -25,7 +27,7 @@ public class ShowProducts extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         String[][] matrix;
-        matrix = ConnectionController.showProducts();
+        matrix = DataController.showProducts();
         tblProducts.setModel(new javax.swing.table.DefaultTableModel(
                 matrix, new String[]{
                     "Nombre", "ID", "Precio", "Descripcion", "Cantidad"

@@ -44,7 +44,7 @@ public class CostumerTest {
     public void testAddNewCostumer() {
         System.out.println("addNewCostumer");
         Person instance = new CostumerImpl();
-        instance.addNewCostumer();
+        
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
