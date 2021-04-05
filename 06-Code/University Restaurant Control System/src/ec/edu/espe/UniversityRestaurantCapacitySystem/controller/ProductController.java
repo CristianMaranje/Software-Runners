@@ -35,7 +35,6 @@ public class ProductController {
             docCostumer = DBManager.findCostumer(costumerID, "Costumers");
             if (docCostumer.isEmpty()) {
                 System.out.println("COSTUMER NOT FOUND");
-                student.addNewCostumer();
                 docCostumer = DBManager.findCostumer(costumerID, "Costumers");
             }
         } while (docCostumer.isEmpty());

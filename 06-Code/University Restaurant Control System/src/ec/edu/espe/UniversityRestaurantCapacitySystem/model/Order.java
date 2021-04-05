@@ -1,10 +1,6 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
-import com.mongodb.BasicDBList;
-import com.mongodb.BasicDBObject;
-import ec.edu.espe.DBManager.utils.DBManager;
 import java.util.Date;
-import java.util.Scanner;
 
 
 /**
@@ -95,10 +91,5 @@ public class Order {
     public void setTotal(float total) {
         this.total = total;
     }
-
-  
-
-
-  
 
 }

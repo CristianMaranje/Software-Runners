@@ -5,10 +5,7 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
-import com.mongodb.BasicDBObject;
-import ec.edu.espe.DBManager.utils.DBManager;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.CostumerController;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Administrator;
 import javax.swing.JOptionPane;
 
 /**

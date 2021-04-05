@@ -5,10 +5,6 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
-import com.mongodb.BasicDBObject;
-import ec.edu.espe.DBManager.utils.DBManager;
-import java.util.Scanner;
-
 /**
  *
  * @author Ariel Nicolás Hidrobo Fernández

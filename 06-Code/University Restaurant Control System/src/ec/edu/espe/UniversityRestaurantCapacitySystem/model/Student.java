@@ -21,24 +21,6 @@ public class Student  extends Person{
         super(name, mail, id);
         this.disscount = disscount;
     }
-    
-   public void addNewCostumer() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("ENTER COSTUMER NAME:");
-        String name = scan.nextLine();
-        System.out.print("ENTER COSTUMER MAIL:");
-        String mail = scan.nextLine();
-        System.out.print("ENTER COSTUMER ID: ");
-        String costumerID = scan.nextLine();
-        System.out.println("");
-        float disscount = 0.15f;
-        
-        BasicDBObject docCostumer =new BasicDBObject();
-        docCostumer.append("name", name).append("mail", mail).append("id", costumerID).append("disscount", disscount);
-        DBManager.save(docCostumer, "Costumers");
-        
-    }
-    
 
     @Override
     public String toString() {

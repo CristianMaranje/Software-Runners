@@ -7,14 +7,9 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.Filemanager.utils.FileManager;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Person;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Employee;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *

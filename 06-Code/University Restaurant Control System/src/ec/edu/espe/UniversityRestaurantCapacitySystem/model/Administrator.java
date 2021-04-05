@@ -1,16 +1,6 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
-import com.google.gson.Gson;
-import com.mongodb.BasicDBList;
-import com.mongodb.BasicDBObject;
-import ec.edu.espe.DBManager.utils.DBManager;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 
 /**
  *

@@ -1,10 +1,6 @@
 
 package ec.edu.espe.UniversityRestaurantCapacitySystem.model;
 
-/**
- *
- * @author GROUP 3 Software-Runners ESPE-DCCO
- */
 import java.util.Date;
 
 /**
