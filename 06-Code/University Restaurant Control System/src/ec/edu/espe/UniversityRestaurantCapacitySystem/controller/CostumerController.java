@@ -35,7 +35,7 @@ public class CostumerController {
     }
 
     public boolean validate(String username, String pass) {
-        boolean verified = false;
+        boolean verified = true;
         Gson gson = new Gson();
         ArrayList lineretrived = new ArrayList<>();
         Person costumer;

@@ -24,7 +24,6 @@ public class UniversityRestaurantCapacityControlSystem {
     public static void main(String[] args) throws InterruptedException {
 
         Scanner scan = new Scanner(System.in);
-        Screen display = new Screen();
         List<String> foundLines;
         Product product = new Product();
         CostumerController student = new CostumerController();
