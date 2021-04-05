@@ -29,7 +29,7 @@ import org.bson.Document;
  *
  * @author GROUP 3 Software-Runners ESPE-DCCO
  */
-public class ConnectionController {
+public class DataController {
 
     MongoDatabase dataBase;
     //DBCollection collection;
@@ -41,7 +41,7 @@ public class ConnectionController {
 
     
 
-    public ConnectionController(String nameCollection) {
+    public DataController(String nameCollection) {
         try {
             this.nameCollection = nameCollection;
             String cluster;
@@ -88,7 +88,7 @@ public class ConnectionController {
 
     public static String[][] showProducts() {
         ArrayList<Product> products = new ArrayList<Product>();
-        ConnectionController connection = new ConnectionController("Products");
+        DataController connection = new DataController("Products");
         products = connection.retrieveProducts();
         for (Product products1 : products) {
             System.out.println(products1.getName());

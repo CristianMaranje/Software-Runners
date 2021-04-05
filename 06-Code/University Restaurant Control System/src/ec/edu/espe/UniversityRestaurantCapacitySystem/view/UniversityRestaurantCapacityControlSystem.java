@@ -1,7 +1,7 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import ec.edu.espe.DBManager.utils.DBManager;
-import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.ConnectionController;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.DataController;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.CostumerController;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.ProductController;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Administrator;
@@ -24,7 +24,6 @@ public class UniversityRestaurantCapacityControlSystem {
     public static void main(String[] args) throws InterruptedException {
 
         Scanner scan = new Scanner(System.in);
-        Screen display = new Screen();
         List<String> foundLines;
         Product product = new Product();
         CostumerController student = new CostumerController();
