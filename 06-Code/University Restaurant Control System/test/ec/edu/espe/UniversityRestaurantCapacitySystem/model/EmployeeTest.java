@@ -44,7 +44,7 @@ public class EmployeeTest {
     public void testAddNewCostumer() {
         System.out.println("addNewCostumer");
         Employee instance = new Employee();
-        instance.addNewCostumer();
+        
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -71,7 +71,7 @@ public class EmployeeTest {
         System.out.println("getDisscount");
         Product product = null;
         Employee instance = new Employee();
-        instance.getDisscount(product);
+        
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

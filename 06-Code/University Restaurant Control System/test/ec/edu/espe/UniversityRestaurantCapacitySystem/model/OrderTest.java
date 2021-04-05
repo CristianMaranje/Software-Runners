@@ -61,8 +61,8 @@ public class OrderTest {
         System.out.println("addNewProduct");
         Order instance = new Order();
         BasicDBList expResult = null;
-        BasicDBList result = instance.addToOrder();
-        assertEquals(expResult, result);
+        
+        assertEquals(expResult,"");
         // TODO review the generated test code and remove the default call to fail.
 
     }

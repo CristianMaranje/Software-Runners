@@ -5,9 +5,11 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
+import com.mongodb.connection.Connection;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.ConnectionController;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import java.util.ArrayList;
+import javax.swing.table.AbstractTableModel;
 
 /**
  *

@@ -11,6 +11,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import static ec.edu.espe.DBManager.utils.DBManager.initializeMongo;
 
 /**
  *

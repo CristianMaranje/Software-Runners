@@ -7,14 +7,18 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.controller;
 
 import com.google.gson.Gson;
 import com.mongodb.BasicDBObject;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import ec.edu.espe.DBManager.utils.DBManager;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Person;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import org.bson.Document;
 
 /**
  *
@@ -23,16 +27,8 @@ import java.util.Scanner;
 public class CostumerController {
     
 
-    public void addNewCostumer() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("ENTER COSTUMER NAME:");
-        String name = scan.nextLine();
-        System.out.print("ENTER COSTUMER MAIL:");
-        String mail = scan.nextLine();
-        System.out.print("ENTER COSTUMER ID: ");
-        String costumerID = scan.nextLine();
-        System.out.println("");
-        float disscount = 0.2F;
+    public void addNewCostumer(String name , String mail , int costumerID , float disscount) {
+       
         BasicDBObject docCostumer = new BasicDBObject();
         docCostumer.append("name", name).append("mail", mail).append("id", costumerID).append("disscount", disscount);
         DBManager.save(docCostumer, "Costumers");

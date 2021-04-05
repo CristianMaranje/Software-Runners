@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.mongodb.BasicDBObject;
 import ec.edu.espe.DBManager.utils.DBManager;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.ProductController;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Tax;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
@@ -203,6 +204,7 @@ public class NewProduct extends javax.swing.JFrame implements Printable {
         ProductController controller = new ProductController();
 
         docProduct.append("name", txtNameProduct.getText())
+              
                 .append("productId", Integer.parseInt((txtIDProduct.getText()).trim()))
                 .append("price", controller.salesTotal(Float.parseFloat(txtPriceProduct.getText())))
                 .append("description", areDescription.getText())

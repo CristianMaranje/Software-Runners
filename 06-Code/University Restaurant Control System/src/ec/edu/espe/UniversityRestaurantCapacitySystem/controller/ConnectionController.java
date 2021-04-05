@@ -1,6 +1,7 @@
 package ec.edu.espe.UniversityRestaurantCapacitySystem.controller;
 
 import com.google.gson.Gson;
+import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
@@ -10,8 +11,18 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.DBManager.utils.DBManager;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Employee;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Person;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Order;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Student;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 import org.bson.Document;
 
 /**
@@ -28,41 +39,7 @@ public class ConnectionController {
     String nameCollection;
     Gson gson = new Gson();
 
-    public void printAllOrders() {
-
-        DBCollection collection = DBManager.initializeMongo("Orders");
-        DBCursor cursor = collection.find();
-
-        while (cursor.hasNext()) {
-
-            DBCursor curso2 = collection.find();
-
-            System.out.println("------->>>>>>>  ORDER ID ->(" + cursor.next().get("orderID") + ")  <<<<<<<<-------");
-            System.out.println("DATE: " + cursor.curr().get("date") + "\n");
-            System.out.println("COSTUMER INFO");
-            System.out.println("NAME: " + cursor.next().get("name"));
-            System.out.println("ID: " + cursor.curr().get("orderID"));
-            System.out.println("E-MAIL: " + cursor.next().get("mail"));
-            System.out.println("-------------------------------------------------");
-            System.out.println("PRODUCTS INFO");
-            float total = 0;
-            int cont = 1;
-            System.out.println("PRODUCT (" + cont + ")");
-            System.out.println("NAME: " + cursor.next().get("date"));
-            System.out.println("ID: ");
-            System.out.println("PRICE: $");
-            System.out.println("DESCRIPTION: ");
-            System.out.println("---------------------------------------------");
-            
-            cont++;
-            System.out.println("TOTAL: $" + total);
-            System.out.println("--------------------------------------------\n");
-
-            System.out.println(cursor.next());
-            System.out.println("===============================================");
-        }
-
-    }
+    
 
     public ConnectionController(String nameCollection) {
         try {
