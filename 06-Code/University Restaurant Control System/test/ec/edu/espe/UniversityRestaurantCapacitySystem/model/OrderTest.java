@@ -54,14 +54,14 @@ public class OrderTest {
     }
 
     /**
-     * Test of addNewProduct method, of class Order.
+     * Test of addToOrder method, of class Order.
      */
     @Test
     public void testAddNewProduct() {
         System.out.println("addNewProduct");
         Order instance = new Order();
         BasicDBList expResult = null;
-        BasicDBList result = instance.addNewProduct();
+        BasicDBList result = instance.addToOrder();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
 
@@ -138,8 +138,8 @@ public class OrderTest {
     public void testGetCostumer() {
         System.out.println("getCostumer");
         Order instance = new Order();
-        Costumer expResult = null;
-        Costumer result = instance.getCostumer();
+        Person expResult = null;
+        Person result = instance.getCostumer();
         assertEquals(expResult, result);
         if (expResult == null) {
             System.out.println("TEST EXECUTED");
@@ -155,7 +155,7 @@ public class OrderTest {
     @Test
     public void testSetCostumer() {
         System.out.println("setCostumer");
-        Costumer costumer = null;
+        Person costumer = null;
         Order instance = new Order();
         instance.setCostumer(costumer);
         if (instance == null) {
@@ -168,7 +168,7 @@ public class OrderTest {
     @Test
     public void testSetCostumerStudent() {
         System.out.println("setCostumer");
-        Costumer costumer = null;
+        Person costumer = null;
         Order instance = new Order();
         instance.setCostumer(costumer);
         if (instance == null) {
@@ -183,7 +183,7 @@ public class OrderTest {
     @Test
     public void testSetCostumerEmployee() {
         System.out.println("setCostumer");
-        Costumer costumer = null;
+        Person costumer = null;
         Order instance = new Order();
         instance.setCostumer(costumer);
         if (instance == null) {
@@ -197,7 +197,7 @@ public class OrderTest {
     @Test
     public void testCostumerStudent() {
         System.out.println("setCostumer");
-        Costumer costumer = null;
+        Person costumer = null;
         Order instance = new Order();
         instance.setCostumer(costumer);
         if (instance == null) {

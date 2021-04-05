@@ -43,7 +43,7 @@ public class CostumerTest {
     @Test
     public void testAddNewCostumer() {
         System.out.println("addNewCostumer");
-        Costumer instance = new CostumerImpl();
+        Person instance = new CostumerImpl();
         instance.addNewCostumer();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -55,7 +55,7 @@ public class CostumerTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Costumer instance = new CostumerImpl();
+        Person instance = new CostumerImpl();
         String expResult = "";
         String result = expResult;
         assertEquals(expResult, " ");
@@ -72,7 +72,7 @@ public class CostumerTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        Costumer instance = new CostumerImpl();
+        Person instance = new CostumerImpl();
         String expResult = "";
         String result = expResult;
         assertEquals(expResult, result);
@@ -90,7 +90,7 @@ public class CostumerTest {
     public void testSetName() {
         System.out.println("setName");
         String name = "";
-        Costumer instance = new CostumerImpl();
+        Person instance = new CostumerImpl();
         instance.setName(name);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -102,7 +102,7 @@ public class CostumerTest {
     @Test
     public void testGetMail() {
         System.out.println("getMail");
-        Costumer instance = new CostumerImpl();
+        Person instance = new CostumerImpl();
         String expResult = "";
         String result = expResult;
         assertEquals(expResult, instance.getMail());
@@ -120,7 +120,7 @@ public class CostumerTest {
     public void testSetMail() {
         System.out.println("setMail");
         String mail = "";
-        Costumer instance = new CostumerImpl();
+        Person instance = new CostumerImpl();
         instance.setMail(mail);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -132,7 +132,7 @@ public class CostumerTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Costumer instance = new CostumerImpl();
+        Person instance = new CostumerImpl();
         String expResult = "";
         String result = expResult;
         assertEquals(expResult, expResult);
@@ -150,13 +150,13 @@ public class CostumerTest {
     public void testSetId() {
         System.out.println("setId");
         String id = "";
-        Costumer instance = new CostumerImpl();
+        Person instance = new CostumerImpl();
         instance.setId(id);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
-    public class CostumerImpl extends Costumer {
+    public class CostumerImpl extends Person {
 
         public void addNewCostumer() {
         }

@@ -84,7 +84,7 @@ public class NewProduct extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 232, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btmSave, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(231, 231, 231))
             .addGroup(layout.createSequentialGroup()
@@ -108,7 +108,7 @@ public class NewProduct extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(245, 245, 245)
                         .addComponent(lblNewProduct)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +159,8 @@ public class NewProduct extends javax.swing.JFrame {
             // TODO add your handling code here:
             BasicDBObject docProduct = new BasicDBObject();
             docProduct.append("name", txtNameProduct.getText())
-                    .append("productID",Integer.parseInt(txtIDProduct.getText()))
+                    .append("productID", txtIDProduct.getText())
+                    //.append("productID",Integer.parseInt(txtIDProduct.getText()))
                     .append("price",Float.parseFloat(txtPriceProduct.getText()))
                     .append("description",areDescription.getText()) 
                     .append("quantity",Integer.parseInt(spnQuantity.getValue().toString()));

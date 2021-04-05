@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Juan Gallardo  Software-Runners ESPE-DCCO
+ * @author Cristian Maranje
  */
 public class Product {
     private String name;
@@ -32,19 +32,12 @@ public class Product {
         quantity = 0; 
     }
     
-    @Override
-    public String toString() {
-        return "Product{" + "name=" + name + ", productId=" + productId + ", price=" + price + ", description=" + description + ", quantity=" + quantity + '}';
-    }
-    
-    
-    public void addNewProduct() {
-        
+     public void addNewProduct() {
         Scanner scan = new Scanner(System.in);
         System.out.print("ENTER THE PRODUCT NAME:");
         String name = scan.nextLine();
         System.out.print("ENTER THE PRODUCT ID:");
-        int productID = scan.nextInt();
+        String productID = scan.nextLine();
         scan.nextLine();
         System.out.print("ENTER THE PRODUCT PRICE: ");
         float price = scan.nextFloat();
@@ -54,59 +47,93 @@ public class Product {
         System.out.print("ENTER THE CUANTITY: ");
         int quantity = scan.nextInt();
         scan.nextLine();
-        
-        BasicDBObject docCostumer =new BasicDBObject();
+        BasicDBObject docCostumer = new BasicDBObject();
         docCostumer.append("name", name).append("productId", productID).append("price", price).append("description", description).append("quantity", quantity);
         DBManager.save(docCostumer, "Products");
-        
     }
-    
-    
-    
-    
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Product{" + "name=" + getName() + ", productId=" + getProductId() + ", price=" + getPrice() + ", description=" + getDescription() + ", quantity=" + getQuantity() + '}';
+    }
+
+    /**
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name the name to set
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * @return the productId
+     */
     public int getProductId() {
         return productId;
     }
 
+    /**
+     * @param productId the productId to set
+     */
     public void setProductId(int productId) {
         this.productId = productId;
     }
 
+    /**
+     * @return the price
+     */
     public float getPrice() {
         return price;
     }
 
+    /**
+     * @param price the price to set
+     */
     public void setPrice(float price) {
         this.price = price;
     }
 
+    /**
+     * @return the description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * @param description the description to set
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * @return the quantity
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * @param quantity the quantity to set
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+ 
     
+    
+
+   
+   
+
+   
 
     
     

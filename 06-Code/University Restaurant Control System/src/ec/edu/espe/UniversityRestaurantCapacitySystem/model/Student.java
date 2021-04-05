@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Ariel Nicolás Hidrobo Fernández
  */
-public class Student  extends Costumer{
+public class Student  extends Person{
     
     private float disscount;
 
@@ -22,7 +22,6 @@ public class Student  extends Costumer{
         this.disscount = disscount;
     }
     
-    @Override
    public void addNewCostumer() {
         Scanner scan = new Scanner(System.in);
         System.out.print("ENTER COSTUMER NAME:");

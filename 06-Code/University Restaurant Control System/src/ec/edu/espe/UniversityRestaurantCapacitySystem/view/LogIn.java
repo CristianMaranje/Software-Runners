@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
+import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.CostumerController;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Administrator;
 import javax.swing.JOptionPane;
 
@@ -136,7 +137,7 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Administrator a = new Administrator();
+        CostumerController a = new CostumerController();
         if(a.validate(txtUsername.getText(),pfPassword.getText())){
             MainMenu m = new MainMenu();
             m.setLocationRelativeTo(null);

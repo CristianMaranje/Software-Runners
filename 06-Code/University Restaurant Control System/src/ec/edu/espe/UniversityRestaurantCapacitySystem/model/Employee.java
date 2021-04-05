@@ -13,9 +13,9 @@ import java.util.Scanner;
  *
  * @author Ariel Nicolás Hidrobo Fernández
  */
-public class Employee extends Costumer{
+public class Employee extends Person{
     
-    float disscount;
+    private float disscount;
 
     public Employee(String name, String mail, String id, float disscount) {
         super(name, mail, id);
@@ -26,33 +26,24 @@ public class Employee extends Costumer{
     
 
     @Override
-   public void addNewCostumer() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("ENTER COSTUMER NAME:");
-        String name = scan.nextLine();
-        System.out.print("ENTER COSTUMER MAIL:");
-        String mail = scan.nextLine();
-        System.out.print("ENTER COSTUMER ID: ");
-        String costumerID = scan.nextLine();
-        System.out.println("");
-        float disscount = 0.2f;
-        
-        BasicDBObject docCostumer =new BasicDBObject();
-        docCostumer.append("name", name).append("mail", mail).append("id", costumerID).append("disscount", disscount);
-        DBManager.save(docCostumer, "Costumers");
-        
+    public String toString() {
+        return "Employee{" + "disscount=" + getDisscount() + '}';
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" + "disscount=" + disscount + '}';
+    /**
+     * @return the disscount
+     */
+    public float getDisscount() {
+        return disscount;
+    }
+
+    /**
+     * @param disscount the disscount to set
+     */
+    public void setDisscount(float disscount) {
+        this.disscount = disscount;
     }
     
-    public void  getDisscount(Product product) {
-        
-        disscount = 0.2f*product.getPrice();
-  
-    }
 
     
 }
