@@ -10,6 +10,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import ec.edu.espe.DBManager.utils.DBManager;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.LogIns;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Person;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import java.io.BufferedReader;
@@ -38,7 +39,7 @@ public class CostumerController {
         boolean verified = true;
         Gson gson = new Gson();
         ArrayList lineretrived = new ArrayList<>();
-        Person costumer;
+        LogIns costumer;
         String line;
         FileReader readFile;
         BufferedReader read;
@@ -51,8 +52,9 @@ public class CostumerController {
                 for (int i = 0; i < data.length; i++) {
                     if (data[i].equals("{\"name\":\"" + username + "\"")) {
                         lineretrived.add(line);
-                        costumer = gson.fromJson(lineretrived.get(i).toString(), Person.class);
+                        costumer = gson.fromJson(lineretrived.get(i).toString(), LogIns.class);
                         if (!costumer.getName().equals(username) || !costumer.getId().equals(pass)) {
+                            verified = false;
                         } else {
                             verified = true;
                         }
