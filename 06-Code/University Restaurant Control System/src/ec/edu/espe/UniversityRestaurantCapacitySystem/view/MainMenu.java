@@ -48,8 +48,8 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         txtNewProduct = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        mnShowOrders = new javax.swing.JMenuItem();
         mnShowCostumer = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         mnQuit = new javax.swing.JMenu();
         mnExitSystem = new javax.swing.JMenuItem();
         mnQuitSesion = new javax.swing.JMenuItem();
@@ -110,14 +110,6 @@ public class MainMenu extends javax.swing.JFrame {
 
         jMenu2.setText("View");
 
-        mnShowOrders.setText("Show Orders");
-        mnShowOrders.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnShowOrdersActionPerformed(evt);
-            }
-        });
-        jMenu2.add(mnShowOrders);
-
         mnShowCostumer.setText("Show Costumers");
         mnShowCostumer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +117,9 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         jMenu2.add(mnShowCostumer);
+
+        jMenuItem3.setText("Show Products");
+        jMenu2.add(jMenuItem3);
 
         jMenuBar1.add(jMenu2);
 
@@ -190,13 +185,6 @@ public class MainMenu extends javax.swing.JFrame {
         p.setVisible(true);
     }//GEN-LAST:event_txtNewProductActionPerformed
 
-    private void mnShowOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnShowOrdersActionPerformed
-        NewCostumer c = new NewCostumer();
-        c.setVisible(true);
-
-
-    }//GEN-LAST:event_mnShowOrdersActionPerformed
-
     private void mnShowCostumerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnShowCostumerActionPerformed
         ShowCostumersTable s = new ShowCostumersTable();
         s.setVisible(true);
@@ -261,12 +249,12 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem mnExitSystem;
     private javax.swing.JMenu mnQuit;
     private javax.swing.JMenuItem mnQuitSesion;
     private javax.swing.JMenuItem mnShowCostumer;
-    private javax.swing.JMenuItem mnShowOrders;
     private javax.swing.JMenuItem txtNewProduct;
     // End of variables declaration//GEN-END:variables
 

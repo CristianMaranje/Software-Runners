@@ -57,14 +57,6 @@
             <Property name="text" type="java.lang.String" value="View"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mnShowOrders">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Show Orders"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnShowOrdersActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnShowCostumer">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Show Costumers"/>
@@ -72,6 +64,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnShowCostumerActionPerformed"/>
               </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Show Products"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
