@@ -64,7 +64,7 @@ public class ConnectionController {
             System.out.println("PRICE: $");
             System.out.println("DESCRIPTION: ");
             System.out.println("---------------------------------------------");
-            //total += product.getPrice();
+            
             cont++;
             System.out.println("TOTAL: $" + total);
             System.out.println("--------------------------------------------\n");
@@ -99,7 +99,7 @@ public class ConnectionController {
         retrievedDocument = collection.find().iterator();
        
         String name;
-        int productId;
+        String productId;
         float price;
         String description;
         int quantity;
@@ -108,7 +108,7 @@ public class ConnectionController {
         while (retrievedDocument.hasNext()) {
             Document object = retrievedDocument.next();
             name = gson.toJson(object.get("name")).replace("\"", "");
-            productId = Integer.parseInt(gson.toJson(object.get("productId")));
+            productId = gson.toJson(object.get("productId")).replace("\"", "");
             price = Float.parseFloat(gson.toJson(object.get("price")));
             description = gson.toJson(object.get("description")).replace("\"", "");
             quantity = Integer.parseInt(gson.toJson(object.get("quantity")));
@@ -130,7 +130,7 @@ public class ConnectionController {
         String[][] matrix = new String[products.size()][5];
         for (int i = 0; i < products.size(); i++) {
             matrix[i][0] = products.get(i).getName();
-            matrix[i][1] = products.get(i).getProductId() + "";
+            matrix[i][1] = products.get(i).getProductId().toString();
             matrix[i][2] = products.get(i).getPrice() + "";
             matrix[i][3] = products.get(i).getDescription();
             matrix[i][4] = products.get(i).getQuantity() + "";

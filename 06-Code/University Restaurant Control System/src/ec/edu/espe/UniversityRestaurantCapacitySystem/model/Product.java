@@ -11,12 +11,12 @@ import java.util.Scanner;
  */
 public class Product {
     private String name;
-    private int productId;
+    private String productId;
     private float price;
     private String description;
     private int quantity;
 
-    public Product(String name, int productId, float price, String description, int quantity) {
+    public Product(String name, String productId, float price, String description, int quantity) {
         this.name = name;
         this.productId = productId;
         this.price = price;
@@ -24,34 +24,18 @@ public class Product {
         this.quantity = quantity;
     }
 
+
+
+ 
     public Product (){
         name= "costumer";
-        productId = 0;
+        productId = "";
         price = (float) 0.00;
         description = "NO DESCRIPTION"; 
         quantity = 0; 
     }
     
-     public void addNewProduct() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("ENTER THE PRODUCT NAME:");
-        String name = scan.nextLine();
-        System.out.print("ENTER THE PRODUCT ID:");
-        String productID = scan.nextLine();
-        scan.nextLine();
-        System.out.print("ENTER THE PRODUCT PRICE: ");
-        float price = scan.nextFloat();
-        scan.nextLine();
-        System.out.print("ENTER THE PRODUCT DESCRIPTION: ");
-        String description = scan.nextLine();
-        System.out.print("ENTER THE CUANTITY: ");
-        int quantity = scan.nextInt();
-        scan.nextLine();
-        BasicDBObject docCostumer = new BasicDBObject();
-        docCostumer.append("name", name).append("productId", productID).append("price", price).append("description", description).append("quantity", quantity);
-        DBManager.save(docCostumer, "Products");
-    }
-
+ 
     @Override
     public String toString() {
         return "Product{" + "name=" + getName() + ", productId=" + getProductId() + ", price=" + getPrice() + ", description=" + getDescription() + ", quantity=" + getQuantity() + '}';
@@ -71,19 +55,7 @@ public class Product {
         this.name = name;
     }
 
-    /**
-     * @return the productId
-     */
-    public int getProductId() {
-        return productId;
-    }
-
-    /**
-     * @param productId the productId to set
-     */
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
+  
 
     /**
      * @return the price
@@ -126,7 +98,17 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
- 
+
+    /**
+     * @return the productId
+     */
+    public String getProductId() {
+        return productId;
+    }
+    
+    
+  
+   
     
     
 

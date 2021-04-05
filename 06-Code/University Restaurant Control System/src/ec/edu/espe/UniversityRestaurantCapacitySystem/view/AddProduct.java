@@ -193,8 +193,7 @@ public class AddProduct extends javax.swing.JFrame {
                 foundProduct = DBManager.findProduct(id, "Products");
 
                 if (foundProduct.isEmpty()) {
-                    System.out.println("PRODUCT NOT FOUND");
-                    product.addNewProduct();
+                   
                     foundProduct = DBManager.findProduct(id, "Products");
                 }
                 if(foundProduct.isEmpty()== false){

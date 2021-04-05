@@ -11,6 +11,7 @@ import ec.edu.espe.DBManager.utils.DBManager;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Order;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Student;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Tax;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -61,8 +62,7 @@ public class ProductController {
                 id = scan.nextInt();
                 foundProduct = DBManager.findProduct(id, "Products");
                 if (foundProduct.isEmpty()) {
-                    System.out.println("PRODUCT NOT FOUND");
-                    product.addNewProduct();
+
                     foundProduct = DBManager.findProduct(id, "Products");
                 }
                 if (foundProduct.isEmpty() == false) {
@@ -76,5 +76,12 @@ public class ProductController {
         }
         return products;
     }
-    
+
+    public float salesTotal(float price) {
+        Tax newValue = new Tax();
+        float total;
+        total = newValue.getTax() * price;
+        total += price;
+        return total;
+    }
 }
