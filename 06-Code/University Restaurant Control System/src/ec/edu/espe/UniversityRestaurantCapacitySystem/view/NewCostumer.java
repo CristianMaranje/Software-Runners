@@ -146,7 +146,11 @@ public class NewCostumer extends javax.swing.JFrame {
         BasicDBObject costumer =new BasicDBObject();
         costumer.append("name", txtCostumerName.getText()).append("mail", txtCostumerMail.getText()).append("id", txtCostumerID.getText());
         DBManager.save(costumer, "Costumers");
-        JOptionPane.showMessageDialog(this, "COSTUMER SAVED");
+        JOptionPane.showMessageDialog(this, "Nuevo cliente guardado exitosamente");
+        
+        txtCostumerName.setText(null);
+        txtCostumerMail.setText(null);
+        txtCostumerID.setText(null);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
