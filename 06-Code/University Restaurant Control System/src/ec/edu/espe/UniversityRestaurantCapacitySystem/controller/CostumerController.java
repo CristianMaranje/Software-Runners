@@ -10,6 +10,8 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import ec.edu.espe.DBManager.utils.DBManager;
+import ec.edu.espe.Filemanager.utils.FileManager;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Employee;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.LogIns;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Person;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Product;
@@ -18,6 +20,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import org.bson.Document;
 
@@ -67,6 +70,27 @@ public class CostumerController {
         return verified;
     }
 
-    
+     
+        public static String[][] showCostumers(){
+             List<Employee> customers = new ArrayList();
+        String customer;
+
+        Gson gson = new Gson();
+        customer = FileManager.findAll("costumersList.json");
+        String[] recovered = customer.split("\r\n");
+        for (int i = 0; i < recovered.length; i++) {
+            customers.add(gson.fromJson(recovered[i], Employee.class));
+        }
+
+        String matrix[][] = new String[customers.size()][4];
+        for (int i = 0; i < customers.size(); i++) {
+            matrix[i][0] = customers.get(i).getName();
+            matrix[i][1] = customers.get(i).getMail();
+            matrix[i][2] = customers.get(i).getId();
+        }
+            
+            
+           return matrix; 
+        }
 
 }
