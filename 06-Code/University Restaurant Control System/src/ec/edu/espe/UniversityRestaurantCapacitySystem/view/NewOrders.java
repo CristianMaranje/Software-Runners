@@ -57,6 +57,7 @@ public class NewOrders extends javax.swing.JFrame {
         btnAddProduct = new javax.swing.JButton();
         txtProductID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -105,7 +106,7 @@ public class NewOrders extends javax.swing.JFrame {
         jLabel1.setText("ID Cliente  ");
 
         lblNewOrder.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblNewOrder.setText("New Order");
+        lblNewOrder.setText("Nueva Orden ");
 
         btnSave.setText("GUARDAR");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -129,16 +130,19 @@ public class NewOrders extends javax.swing.JFrame {
 
         jLabel2.setText("ID Producto");
 
+        jButton1.setText("REGRESAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblNewOrder)
-                        .addGap(272, 272, 272))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -162,8 +166,13 @@ public class NewOrders extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(274, 274, 274)
-                                .addComponent(btnSave))
+                                .addGap(200, 200, 200)
+                                .addComponent(btnSave)
+                                .addGap(88, 88, 88)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(237, 237, 237)
+                                .addComponent(lblNewOrder))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -180,10 +189,11 @@ public class NewOrders extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
                         .addComponent(lblNewOrder)
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtIDCostumer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,8 +204,10 @@ public class NewOrders extends javax.swing.JFrame {
                             .addComponent(btnAddProduct)
                             .addComponent(btnVerificateCostumer))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))))
         );
 
         pack();
@@ -211,11 +223,11 @@ public class NewOrders extends javax.swing.JFrame {
             if (docCostumer.isEmpty()) {
                 NewCostumer c = new NewCostumer();
                 c.setVisible(true);
-                JOptionPane.showMessageDialog(this, "COSTUMER NOT FOUND, REGISTER A NEW ONE");
+                JOptionPane.showMessageDialog(this, "CLIENTE NO ENCONTRADO , REGISTRE UNO :");
             }
 
         } while (docCostumer.isEmpty());
-        JOptionPane.showMessageDialog(this, "COSTUMER FOUND :)");
+        JOptionPane.showMessageDialog(this, "CLIENTE ENCONTRADO");
 //        AddProduct p = new AddProduct();
 //        p.setVisible(true);
 
@@ -259,8 +271,15 @@ public class NewOrders extends javax.swing.JFrame {
         Date date = new Date();
         order.append("Product", products).append("costumer", docCostumer).append("date", date);
         DBManager.save(order, "Orders");
-        JOptionPane.showMessageDialog(this, "ORDER SAVED");
+        JOptionPane.showMessageDialog(this, "ORDEN AGREGADA");
+        txtIDCostumer.setText(null);
+        txtProductID.setText(null);
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       MainMenu m = new MainMenu ();
+        m.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,6 +320,7 @@ public class NewOrders extends javax.swing.JFrame {
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnVerificateCostumer;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

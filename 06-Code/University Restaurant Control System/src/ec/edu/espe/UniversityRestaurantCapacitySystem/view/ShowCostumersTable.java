@@ -7,6 +7,7 @@ package ec.edu.espe.UniversityRestaurantCapacitySystem.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.Filemanager.utils.FileManager;
+import ec.edu.espe.UniversityRestaurantCapacitySystem.controller.CostumerController;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Person;
 import ec.edu.espe.UniversityRestaurantCapacitySystem.model.Employee;
 import java.awt.print.Printable;
@@ -18,7 +19,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Rafa
+ * @author Nicolas Hidrobo
  */
 public class ShowCostumersTable extends javax.swing.JFrame {
 
@@ -46,6 +47,7 @@ public class ShowCostumersTable extends javax.swing.JFrame {
         btnnewCustomer = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -89,24 +91,35 @@ public class ShowCostumersTable extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/UniversityRestaurantCapacitySystem/images/target (1).png"))); // NOI18N
         jLabel3.setText("jLabel3");
 
+        jButton2.setText("REGRESAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(btmShowCostumers, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnnewCustomer))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnnewCustomer)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2)
+                            .addComponent(btmShowCostumers, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)))
+                .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -116,17 +129,24 @@ public class ShowCostumersTable extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(74, 74, 74)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(162, 162, 162))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(41, 41, 41)
                         .addComponent(btnnewCustomer)
-                        .addGap(34, 34, 34)
-                        .addComponent(btmShowCostumers))
+                        .addGap(18, 18, 18)
+                        .addComponent(btmShowCostumers)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(7, 7, 7))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,24 +170,11 @@ public class ShowCostumersTable extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btmShowCostumersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmShowCostumersActionPerformed
-        List<Employee> customers = new ArrayList();
-        String customer;
 
-        Gson gson = new Gson();
-        customer = FileManager.findAll("costumersList.json");
-        String[] recovered = customer.split("\r\n");
-        for (int i = 0; i < recovered.length; i++) {
-            customers.add(gson.fromJson(recovered[i], Employee.class));
-        }
-
-        String matrix[][] = new String[customers.size()][4];
-        for (int i = 0; i < customers.size(); i++) {
-            matrix[i][0] = customers.get(i).getName();
-            matrix[i][1] = customers.get(i).getMail();
-            matrix[i][2] = customers.get(i).getId();
-        }
+        CostumerController controller = new CostumerController();
+        
         tblCostumers.setModel(new javax.swing.table.DefaultTableModel(
-            matrix,
+            controller.showCostumers(),
             new String [] {
                 "Name", "Mail", "ID"
             }
@@ -179,6 +186,12 @@ public class ShowCostumersTable extends javax.swing.JFrame {
         NewCostumer n = new NewCostumer();
         n.setVisible(true);
     }//GEN-LAST:event_btnnewCustomerActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        MainMenu m = new MainMenu ();
+        m.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,6 +232,7 @@ public class ShowCostumersTable extends javax.swing.JFrame {
     private javax.swing.JButton btmShowCostumers;
     private javax.swing.JButton btnnewCustomer;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

@@ -73,7 +73,7 @@ public class ProductController {
         return products;
     }
 
-    public float salesTotal(float price) {
+    public float salesTotal(float price ) {
         Tax newValue = new Tax();
         float total;
         total = newValue.getTax() * price;

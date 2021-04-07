@@ -23,13 +23,6 @@ public class UniversityRestaurantCapacityControlSystem {
      */
     public static void main(String[] args) throws InterruptedException {
 
-        Scanner scan = new Scanner(System.in);
-        List<String> foundLines;
-        Product product = new Product();
-        CostumerController student = new CostumerController();
-        CostumerController employee= new CostumerController();
-        Administrator cashier = new Administrator();
-        ProductController controller = new ProductController();
         LogIn log = new LogIn();
             log.setVisible(true);
     }
